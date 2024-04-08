@@ -7,4 +7,5 @@ spec:
   repo: "https://github.com/webD97/homelab-cluster-gitops"
   branch: main
   pollingInterval: 300s
-  paths: []
+  paths:
+    - cilium
