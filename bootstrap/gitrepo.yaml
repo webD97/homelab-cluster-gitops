@@ -9,3 +9,4 @@ spec:
   pollingInterval: 300s
   paths:
     - cilium
+    - sealed-secrets
