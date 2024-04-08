@@ -3,5 +3,5 @@ defaultNamespace: kube-system
 helm:
   repo: https://bitnami-labs.github.io/sealed-secrets
   chart: sealed-secrets
-  version: "1.15.3"
+  version: "2.15.3"
   releaseName: sealed-secrets
