@@ -19,6 +19,7 @@ helm:
     
     serviceDns:
       type: LoadBalancer
+      loadBalancerIP: 192.168.39.2
       mixedService: true
     
     serviceDhcp:
