@@ -13,5 +13,5 @@ spec:
     - cilium-l2-config
     - cilium-gateway
     - sealed-secrets
-    - pihole-secrets
+    - pihole-config
     - pihole
