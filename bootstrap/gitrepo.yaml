@@ -9,4 +9,5 @@ spec:
   pollingInterval: 300s
   paths:
     - cilium
+    - gateway-api
     - sealed-secrets
