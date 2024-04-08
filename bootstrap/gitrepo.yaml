@@ -10,4 +10,5 @@ spec:
   paths:
     - gateway-api
     - cilium
+    - cilium-l2-config
     - sealed-secrets
