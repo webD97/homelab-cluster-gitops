@@ -1,0 +1,23 @@
+defaultNamespace: dns-system
+
+dependsOn:
+  - name: homelab-cluster-pihole-secrets
+
+helm:
+  repo: https://mojo2600.github.io/pihole-kubernetes/
+  chart: pihole
+  version: "2.23.0"
+  releaseName: pihole
+  values:
+    persistentVolumeClaim:
+      enabled: false
+    
+    serviceWeb:
+      type: LoadBalancer
+    
+    serviceDns:
+      type: LoadBalancer
+    
+    admin:
+      enabled: true
+      existingSecret: pihole-admin
