@@ -1,5 +1,8 @@
 defaultNamespace: kube-system
 
+dependsOn:
+  - name: homelab-cluster-gateway-api
+
 helm:
   repo: https://helm.cilium.io/
   chart: cilium

@@ -8,6 +8,6 @@ spec:
   branch: main
   pollingInterval: 300s
   paths:
-    - cilium
     - gateway-api
+    - cilium
     - sealed-secrets
