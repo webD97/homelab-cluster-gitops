@@ -1,0 +1,9 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: homelab-cluster
+  namespace: fleet-local
+spec:
+  repo: "https://github.com/webD97/homelab-cluster-gitops"
+  pollingInterval: 300s
+  paths: []
