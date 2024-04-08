@@ -1,7 +1,7 @@
 defaultNamespace: dns-system
 
 dependsOn:
-  - name: homelab-cluster-pihole-secrets
+  - name: homelab-cluster-pihole-config
 
 helm:
   repo: https://mojo2600.github.io/pihole-kubernetes/
