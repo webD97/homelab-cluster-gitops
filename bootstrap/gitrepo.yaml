@@ -11,4 +11,5 @@ spec:
     - gateway-api
     - cilium
     - cilium-l2-config
+    - cilium-gateway
     - sealed-secrets
