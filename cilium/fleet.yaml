@@ -25,7 +25,7 @@ helm:
     operator:
       replicas: 1
     
-    gatewayApi:
+    gatewayAPI:
       enabled: true
     
     l2announcements:
