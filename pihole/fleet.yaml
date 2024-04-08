@@ -13,7 +13,7 @@ helm:
       enabled: false
     
     serviceWeb:
-      type: LoadBalancer
+      type: ClusterIP
       https:
         enabled: false
     
