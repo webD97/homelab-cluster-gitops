@@ -9,14 +9,29 @@ helm:
     encryption:
       enabled: true
       type: wireguard
+    
     ipam:
       operator:
         clusterPoolIPv4PodCIDRList: 10.42.0.0/16
+    
     k8sServiceHost: 192.168.47.1
     k8sServicePort: 6443
+
     kubeProxyReplacement: true
+  
     operator:
       replicas: 1
+    
+    gatewayApi:
+      enabled: true
+    
+    l2announcements:
+      enabled: true
+    
+    k8sClientRateLimit:
+      qps: 30
+      burst: 45
+    
     hubble:
       relay:
         enabled: true
