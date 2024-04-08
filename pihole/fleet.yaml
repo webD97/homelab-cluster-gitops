@@ -18,6 +18,9 @@ helm:
     serviceDns:
       type: LoadBalancer
     
+    serviceDhcp:
+      enabled: false
+    
     admin:
       enabled: true
       existingSecret: pihole-admin
