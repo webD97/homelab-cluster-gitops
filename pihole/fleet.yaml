@@ -14,9 +14,12 @@ helm:
     
     serviceWeb:
       type: LoadBalancer
+      https:
+        enabled: false
     
     serviceDns:
       type: LoadBalancer
+      mixedService: true
     
     serviceDhcp:
       enabled: false
