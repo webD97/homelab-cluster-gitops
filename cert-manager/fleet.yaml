@@ -5,6 +5,8 @@ helm:
   chart: cert-manager
   version: 1.14.4
   values:
-    crds:
-      enabled: true
-      keep: true
+    installCRDs: true
+    # This seems to be an upcoming feature:
+    #crds:
+    #  enabled: true
+    #  keep: true
