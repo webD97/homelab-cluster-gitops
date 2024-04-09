@@ -1,0 +1,5 @@
+defaultNamespace: kube-system
+
+dependsOn:
+  - name: homelab-cluster-cilium
+  - name: homelab-cluster-cilium-gateway

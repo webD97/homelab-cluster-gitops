@@ -12,6 +12,7 @@ spec:
     - cilium
     - cilium-l2-config
     - cilium-gateway
+    - cilium-hubble-expose
     - sealed-secrets
     - pihole-config
     - pihole
