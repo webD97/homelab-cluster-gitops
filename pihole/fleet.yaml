@@ -9,7 +9,9 @@ helm:
   version: "2.23.0"
   releaseName: pihole
   values:
-    replicaCount: 2
+    # This should be 1 until I find out how to do sticky sessions in gateway-api.
+    # Otherwise we're getting redirect loops
+    replicaCount: 1
 
     virtualHost: pihole.homelab.cloudbending.dev
 
