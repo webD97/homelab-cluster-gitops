@@ -19,4 +19,4 @@ spec:
         certificateRefs:
         - kind: Secret
           group: ""
-          name: letsencrypt-staging
+          name: letsencrypt
