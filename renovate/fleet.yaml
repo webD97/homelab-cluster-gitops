@@ -13,4 +13,9 @@ helm:
           name: renovate-token
     renovate:
       config: |
-        {}
+        {
+          "platform": "github",
+          "repositories": [
+            "webD97/homelab-cluster-gitops"
+          ]
+        }
