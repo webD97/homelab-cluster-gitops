@@ -15,7 +15,7 @@ helm:
     # > Error presenting challenge: hetzner.acme.cloudbending.dev is forbidden: User "system:serviceaccount:x509-system:homelab-cluster-cert-manager" cannot create resource "hetzner" in API group "acme.cloudbending.dev" at the cluster scope
     certManager:
       namespace: x509-system
-      serviceAccountName: homelab-cluster-cert-manager
+      serviceAccountName: cert-manager
     
     secretName:
       - hetzner-webhook
