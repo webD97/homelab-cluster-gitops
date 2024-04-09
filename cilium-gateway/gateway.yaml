@@ -12,7 +12,7 @@ spec:
         namespaces:
           from: All
       tls:
-        mode: Terminate #
+        mode: Terminate
         certificateRefs:
         - kind: Secret
           group: ""
