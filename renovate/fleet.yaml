@@ -8,9 +8,9 @@ helm:
   chart: renovate
   version: 37.281.0
   values:
+    envFrom:
+      - secretRef:
+          name: renovate-token
     renovate:
-      envFrom:
-        - secretRef:
-            name: renovate-token
       config: |
         {}
