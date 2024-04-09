@@ -9,6 +9,11 @@ helm:
   version: "2.23.0"
   releaseName: pihole
   values:
+    virtualHost: pihole.homelab.cloudbending.dev
+
+    DNS1: 192.168.38.1
+    DNS2: 192.168.32.1
+
     persistentVolumeClaim:
       enabled: false
     
@@ -28,3 +33,6 @@ helm:
     admin:
       enabled: true
       existingSecret: pihole-admin
+    
+    extraEnvVars:
+      QUERY_LOGGING: "false"
