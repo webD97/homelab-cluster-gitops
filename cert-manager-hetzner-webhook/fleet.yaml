@@ -15,3 +15,6 @@ helm:
     certManager:
       namespace: x509-system
       serviceAccountName: homelab-cluster-cert-manager
+    
+    secretName:
+      - hetzner-webhook
