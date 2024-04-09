@@ -1,0 +1,10 @@
+defaultNamespace: x509-system
+
+helm:
+  repo: https://charts.jetstack.io
+  chart: cert-manager
+  version: 1.14.4
+  values:
+    crds:
+      enabled: true
+      keep: true

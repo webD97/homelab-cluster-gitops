@@ -16,3 +16,4 @@ spec:
     - pihole-config
     - pihole
     - external-dns
+    - cert-manager
