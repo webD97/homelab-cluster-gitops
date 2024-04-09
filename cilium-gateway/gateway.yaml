@@ -5,9 +5,18 @@ metadata:
 spec:
   gatewayClassName: cilium
   listeners:
-  - protocol: HTTP
-    port: 80
-    name: http
-    allowedRoutes:
-      namespaces:
-        from: All
+    - protocol: HTTP
+      port: 80
+      name: http
+      allowedRoutes:
+        namespaces:
+          from: All
+    - protocol: HTTPS
+      port: 443
+      name: https
+      tls:
+        mode: Terminate #
+        certificateRefs:
+        - kind: Secret
+          group: ""
+          name: letsencrypt-staging
