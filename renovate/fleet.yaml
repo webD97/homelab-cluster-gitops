@@ -12,5 +12,5 @@ helm:
       envFrom:
         - secretRef:
             name: renovate-token
-    config: |
-      {}
+      config: |
+        {}
