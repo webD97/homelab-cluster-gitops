@@ -6,6 +6,7 @@ dependsOn:
 helm:
   chart: oci://registry-1.docker.io/bitnamicharts/external-dns
   version: 7.1.2
+  releaseName: external-dns
   values:
     sources:
       - gateway-httproute
