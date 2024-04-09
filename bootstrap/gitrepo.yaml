@@ -17,3 +17,5 @@ spec:
     - pihole
     - external-dns
     - cert-manager
+    - cert-manager-hetzner-webhook
+    - cert-manager-issuers

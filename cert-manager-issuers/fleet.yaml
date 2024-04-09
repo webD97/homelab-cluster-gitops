@@ -1,0 +1,4 @@
+defaultNamespace: x509-system
+
+dependsOn:
+  - name: homelab-cluster-sealed-secrets

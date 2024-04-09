@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging
+spec:
+  acme:
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    email: carsshad.dhnictead+letsencrypt@posteo.net
+    privateKeySecretRef:
+      name: letsencrypt-staging
+    solvers:
+      - dns01:
+          webhook:
+            groupName: homelab.cloudbending.dev
+            solverName: hetzner
+            config:
+              secretName: hetzner-webhook
+              zoneName: homelab.cloudbending.dev
+              apiUrl: https://dns.hetzner.com/api/v1
