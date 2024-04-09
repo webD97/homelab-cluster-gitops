@@ -4,8 +4,7 @@ dependsOn:
   - name: homelab-cluster-sealed-secrets
 
 helm:
-  chart: https://charts.bitnami.com/bitnami
-  name: external-dns
+  chart: oci://registry-1.docker.io/bitnamicharts/external-dns
   version: 7.1.2
   releaseName: external-dns
   values:
