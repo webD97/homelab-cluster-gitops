@@ -15,5 +15,30 @@ helm:
             - usb
         sources:
           usb:
-            deviceClassWhitelist: ["00", "0e", "ef", "fe", "ff"]
-            deviceLabelFields: ["vendor", "device", "serial"]
+            deviceClassWhitelist:
+              - "02"
+              - "03"
+              - "0e"
+              - "ef"
+              - "fe"
+              - "ff"
+            deviceLabelFields:
+              - "class"
+              - "vendor"
+              - "device"
+              - "serial"
+          custom:
+            - name: "anycubic"
+              matchOn:
+                - usbId:
+                    class: ["ff"]
+                    vendor: ["10c4"]
+                    device: ["ea60"]
+                    serial: ["0001"]
+            - name: "skyconnect"
+              matchOn:
+                - usbId:
+                    class: ["ff"]
+                    vendor: ["10c4"]
+                    device: ["ea60"]
+                    serial: ["265d5ba51d97ed1197e3c998a7669f5d"]
