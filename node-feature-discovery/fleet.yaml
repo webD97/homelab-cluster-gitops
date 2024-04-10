@@ -11,6 +11,8 @@ helm:
     worker:
       config:
         core:
+          featureSources:
+            - usb
           labelSources:
             - usb
             - custom
