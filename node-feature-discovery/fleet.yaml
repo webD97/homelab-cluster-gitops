@@ -40,12 +40,12 @@ helm:
                     vendor: ["10c4"]
                     device: ["ea60"]
                     serial: ["0001"]
-            - name: "skyconnect"
-              labels:
-                nabucasa-skyconnect: "true"
-              matchOn:
-                - usbId:
-                    class: ["ff"]
-                    vendor: ["10c4"]
-                    device: ["ea60"]
-                    serial: ["265d5ba51d97ed1197e3c998a7669f5d"]
+            # - name: "skyconnect"
+            #   labels:
+            #     nabucasa-skyconnect: "true"
+            #   matchOn:
+            #     - usbId:
+            #         class: ["ff"]
+            #         vendor: ["10c4"]
+            #         device: ["ea60"]
+            #         serial: ["265d5ba51d97ed1197e3c998a7669f5d"]
