@@ -14,6 +14,8 @@ spec:
     - cilium-gateway
     - cilium-hubble-expose
     - sealed-secrets
+    - democratic-csi-config
+    - democratic-csi
     - pihole-config
     - pihole
     - external-dns

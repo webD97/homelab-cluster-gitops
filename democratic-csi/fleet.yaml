@@ -1,0 +1,17 @@
+defaultNamespace: storage-system
+
+dependsOn:
+  - name: homelab-cluster-democratic-csi-config
+
+helm:
+  repo: https://democratic-csi.github.io/charts/
+  name: democratic-csi
+  version: 0.14.6
+  releaseName: democratic-csi
+  values:
+    driver:
+      existingConfigSecret: driver-config
+      config:
+        driver: freenas-api-nfs
+    csiDriver:
+      name: zfs-nfs
