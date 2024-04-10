@@ -17,6 +17,7 @@ spec:
     - democratic-csi-config
     - democratic-csi
     - node-feature-discovery
+    - generic-device-plugin
     - pihole-config
     - pihole
     - external-dns

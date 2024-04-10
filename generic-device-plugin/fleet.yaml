@@ -1,0 +1,23 @@
+defaultNamespace: kube-system
+
+helm:
+  repo: https://charts.gabe565.com
+  chart: generic-device-plugin
+  version: 0.1.3
+  releaseName: generic-device-plugin
+  values:
+    env:
+      DOMAIN: generic.dev
+    config:
+      data: |
+        devices:
+          - name: tty-anycubic
+            groups:
+              - paths:
+                  - path: /dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001*
+                    mountPath: /dev/ttyUSB0
+          - name: tty-skyconnect
+            groups:
+              - paths:
+                  - path: /dev/serial/by-id/usb-Nabu_Casa_SkyConnect*
+                    mountPath: /dev/ttyUSB0
