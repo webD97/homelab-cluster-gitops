@@ -9,10 +9,12 @@ helm:
   version: 0.14.6
   releaseName: democratic-csi
   values:
-    driver:
-      existingConfigSecret: driver-config
-      localtimeHostPath: null
-      config:
-        driver: freenas-api-nfs
     csiDriver:
       name: zfs-nfs
+    driver:
+      existingConfigSecret: driver-config
+      config:
+        driver: freenas-api-nfs
+    node:
+      driver:
+        localtimeHostPath: null
