@@ -17,4 +17,5 @@ helm:
         driver: freenas-api-nfs
     node:
       driver:
+        # Important on Fedora CoreOS: https://github.com/democratic-csi/democratic-csi/issues/343
         localtimeHostPath: null
