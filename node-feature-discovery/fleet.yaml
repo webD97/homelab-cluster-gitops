@@ -6,10 +6,12 @@ helm:
   version: 0.15.4
   releaseName: node-feature-discovery
   values:
+    gc:
+      interval: 60s
     worker:
       config:
         core:
-          sleepInterval: 15s
+          sleepInterval: 10s
           featureSources:
             - usb
           labelSources:
@@ -23,11 +25,6 @@ helm:
               - "ef"
               - "fe"
               - "ff"
-            deviceLabelFields:
-              - "class"
-              - "vendor"
-              - "device"
-              - "serial"
           custom:
             - name: "anycubic"
               labels:
