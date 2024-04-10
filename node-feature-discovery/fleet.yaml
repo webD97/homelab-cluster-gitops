@@ -7,8 +7,6 @@ helm:
   releaseName: node-feature-discovery
   values:
     worker:
-      podSecurityContext:
-        privileged: true
       config:
         core:
           labelSources:
