@@ -19,3 +19,20 @@ helm:
       driver:
         # Important on Fedora CoreOS: https://github.com/democratic-csi/democratic-csi/issues/343
         localtimeHostPath: null
+    storageClasses:
+      - name: nfs-csi
+        defaultClass: true
+        reclaimPolicy: Retain
+        volumeBindingMode: Immediate
+        allowVolumeExpansion: true
+        parameters:
+          fsType: nfs
+        mountOptions:
+          - noatime
+          - nfsvers=4
+        secrets:
+          provisioner-secret:
+          controller-publish-secret:
+          node-stage-secret:
+          node-publish-secret:
+          controller-expand-secret:
