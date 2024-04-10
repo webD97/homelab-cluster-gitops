@@ -13,7 +13,7 @@ helm:
         core:
           sleepInterval: 15s
           featureSources:
-            - usb
+            - all
           labelSources:
             - usb
             - custom
