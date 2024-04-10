@@ -11,6 +11,7 @@ helm:
     worker:
       config:
         core:
+          sleepInterval: 15s
           featureSources:
             - usb
           labelSources:
