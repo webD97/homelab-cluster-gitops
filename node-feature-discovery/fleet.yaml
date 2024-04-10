@@ -6,18 +6,14 @@ helm:
   version: 0.15.4
   releaseName: node-feature-discovery
   values:
-    master:
-      enable: false
     worker:
       config:
         core:
           sleepInterval: 15s
           featureSources:
-            - usb
-            - custom
+            - all
           labelSources:
-            - usb
-            - custom
+            - all
         sources:
           usb:
             deviceClassWhitelist:
