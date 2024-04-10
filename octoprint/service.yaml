@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: octoprint
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+  selector:
+    app.kubernetes.io/instance: octoprint
+    app.kubernetes.io/name: octoprint
+  type: ClusterIP

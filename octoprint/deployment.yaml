@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: octoprint
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: octoprint
+      app.kubernetes.io/name: octoprint
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: octoprint
+        app.kubernetes.io/name: octoprint
+    spec:
+      containers:
+      - name: octoprint
+        image: octoprint/octoprint:1.9.3
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /octoprint
+          name: data
+        env:
+          - name: "ENABLE_MJPG_STREAMER"
+            value: "false"
+          - name: "TZ"
+            value: "Europe/Berlin"
+          - name: "OCTOPRINT_PORT"
+            value: "80"
+        resources:
+          requests:
+            generic.dev/tty-anycubic: 1
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: octoprint
