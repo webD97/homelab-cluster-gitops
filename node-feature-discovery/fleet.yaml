@@ -8,6 +8,9 @@ helm:
   values:
     worker:
       config:
+        core:
+          labelSources:
+            - usb
         sources:
           usb:
             deviceClassWhitelist: ["00", "0e", "ef", "fe", "ff"]
