@@ -5,3 +5,8 @@ helm:
   chart: node-feature-discovery
   version: 0.15.4
   releaseName: node-feature-discovery
+  values:
+    sources:
+      usb:
+        deviceClassWhitelist: ["00", "0e", "ef", "fe", "ff"]
+        deviceLabelFields: ["vendor", "device", "serial"]
