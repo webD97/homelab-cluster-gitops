@@ -34,7 +34,7 @@ spec:
           - name: "OCTOPRINT_PORT"
             value: "80"
         resources:
-          requests:
+          limits:
             generic.dev/tty-anycubic: 1
       volumes:
       - name: data
