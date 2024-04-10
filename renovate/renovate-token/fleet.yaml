@@ -1,0 +1,6 @@
+defaultNamespace: renovate-bot
+
+dependsOn:
+  - selector:
+      matchLabels:
+        sealed-secrets: "true"

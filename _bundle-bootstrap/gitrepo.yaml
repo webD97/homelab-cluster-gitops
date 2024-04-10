@@ -1,0 +1,35 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: homelab-cluster
+  namespace: fleet-local
+spec:
+  repo: "https://github.com/webD97/homelab-cluster-gitops"
+  branch: main
+  pollingInterval: 300s
+  paths:
+    - kube-system/gateway-api
+    - kube-system/cilium
+    - kube-system/cilium-l2-config
+    - kube-system/cilium-gateway
+    - kube-system/cilium-hubble-expose
+    - kube-system/sealed-secrets
+    - kube-system/generic-device-plugin
+
+    - storage-system/democratic-csi-config
+    - storage-system/democratic-csi
+
+    - nfd-system/node-feature-discovery
+
+    - dns-system/pihole-config
+    - dns-system/pihole
+    - dns-system/external-dns
+
+    - x509-system/cert-manager
+    - x509-system/cert-manager-hetzner-webhook
+    - x509-system/cert-manager-issuers
+
+    - renovate/renovate-token
+    - renovate/renovate-bot
+
+    - 3d-printing/octoprint

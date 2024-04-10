@@ -1,5 +1,0 @@
-defaultNamespace: kube-system
-
-dependsOn:
-  - name: homelab-cluster-gateway-api
-  - name: homelab-cluster-cert-manager-issuers

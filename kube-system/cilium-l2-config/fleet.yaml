@@ -1,0 +1,9 @@
+defaultNamespace: kube-system
+
+dependsOn:
+  - selector:
+      matchLabels:
+        gateway-api-crds: "true"
+  - selector:
+      matchLabels:
+        cilium: "true"

@@ -1,0 +1,6 @@
+defaultNamespace: x509-system
+
+dependsOn:
+  - selector:
+      matchLabels:
+        sealed-secrets: "true"

@@ -1,0 +1,4 @@
+defaultNamespace: kube-system
+
+labels:
+  gateway-api-crds: "true"

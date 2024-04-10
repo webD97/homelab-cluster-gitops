@@ -1,4 +1,0 @@
-defaultNamespace: kube-system
-
-dependsOn:
-  - name: homelab-cluster-cilium

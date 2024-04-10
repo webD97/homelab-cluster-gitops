@@ -1,0 +1,6 @@
+defaultNamespace: storage-system
+
+dependsOn:
+  - selector:
+      matchLabels:
+        sealed-secrets: "true"

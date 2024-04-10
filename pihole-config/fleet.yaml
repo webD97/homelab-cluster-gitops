@@ -1,4 +1,0 @@
-defaultNamespace: dns-system
-
-dependsOn:
-  - name: homelab-cluster-sealed-secrets

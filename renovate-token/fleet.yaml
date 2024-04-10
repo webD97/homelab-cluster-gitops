@@ -1,4 +1,0 @@
-defaultNamespace: renovate-bot
-
-dependsOn:
-  - name: homelab-cluster-sealed-secrets

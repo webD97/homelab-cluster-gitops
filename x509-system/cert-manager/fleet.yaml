@@ -1,0 +1,16 @@
+defaultNamespace: x509-system
+
+labels:
+  cert-manager: true
+
+helm:
+  repo: https://charts.jetstack.io
+  chart: cert-manager
+  version: 1.14.4
+  releaseName: cert-manager
+  values:
+    installCRDs: true
+    # This seems to be an upcoming feature:
+    #crds:
+    #  enabled: true
+    #  keep: true
