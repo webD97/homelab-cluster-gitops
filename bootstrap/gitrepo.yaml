@@ -16,6 +16,7 @@ spec:
     - sealed-secrets
     - democratic-csi-config
     - democratic-csi
+    - node-feature-discovery
     - pihole-config
     - pihole
     - external-dns
