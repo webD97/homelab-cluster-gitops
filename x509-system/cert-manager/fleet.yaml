@@ -1,7 +1,7 @@
 defaultNamespace: x509-system
 
 labels:
-  cert-manager: true
+  cert-manager: "true"
 
 helm:
   repo: https://charts.jetstack.io
