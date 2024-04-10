@@ -11,6 +11,7 @@ helm:
   values:
     driver:
       existingConfigSecret: driver-config
+      localtimeHostPath: null
       config:
         driver: freenas-api-nfs
     csiDriver:
