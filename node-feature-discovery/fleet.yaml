@@ -11,6 +11,7 @@ helm:
         core:
           labelSources:
             - usb
+            - custom
         sources:
           usb:
             deviceClassWhitelist:
@@ -26,6 +27,8 @@ helm:
               - "serial"
           custom:
             - name: "anycubic"
+              labels:
+                anycubic-i3-mega-s: "true"
               matchOn:
                 - usbId:
                     class: ["ff"]
@@ -33,6 +36,8 @@ helm:
                     device: ["ea60"]
                     serial: ["0001"]
             - name: "skyconnect"
+              labels:
+                nabucasa-skyconnect: "true"
               matchOn:
                 - usbId:
                     class: ["ff"]
