@@ -11,9 +11,9 @@ helm:
         core:
           sleepInterval: 15s
           featureSources:
-            - all
+            - usb
           labelSources:
-            - all
+            - usb
         sources:
           usb:
             deviceClassWhitelist:
