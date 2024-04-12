@@ -16,7 +16,7 @@ helm:
       initialDelaySeconds: 15
 
     podDisruptionBudget:
-      minAvilable: 1
+      minAvailable: 1
 
     servers:
       - zones:
