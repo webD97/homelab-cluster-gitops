@@ -27,7 +27,7 @@ helm:
           fsType: nfs
         mountOptions:
           - noatime
-          - nfsvers=3
+          - nfsvers=4
         secrets:
           provisioner-secret:
           controller-publish-secret:
