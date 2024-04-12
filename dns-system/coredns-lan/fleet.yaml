@@ -47,9 +47,9 @@ helm:
             configBlock: |-
               endpoint http://coredns-etcd:2379
           
-          # Forward internet to quad9.net
+          # Forward internet to pihole
           - name: forward
-            parameters: . 9.9.9.9
+            parameters: . pihole-dns
 
           # Cache up to 15min
           - name: cache
