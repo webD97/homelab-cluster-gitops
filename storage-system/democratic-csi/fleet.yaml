@@ -8,6 +8,7 @@ helm:
   values:
     csiDriver:
       name: zfs-nfs
+      fsGroupPolicy: None
     driver:
       existingConfigSecret: driver-config
       config:
