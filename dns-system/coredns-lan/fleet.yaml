@@ -49,7 +49,7 @@ helm:
           
           # Forward internet to pihole
           - name: forward
-            parameters: . pihole-dns
+            parameters: . 10.43.151.72
 
           # Cache up to 15min
           - name: cache
