@@ -20,6 +20,8 @@ helm:
     
     disasterRecovery:
       enabled: true
+      cronjob:
+        schedule: "0 */2 * * *"
       pvc:
         storageClassName: nfs-csi
         size: 2Gi
