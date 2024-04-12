@@ -1,6 +1,0 @@
-defaultNamespace: dns-system
-
-dependsOn:
-  - selector:
-      matchLabels:
-        sealed-secrets: "true"

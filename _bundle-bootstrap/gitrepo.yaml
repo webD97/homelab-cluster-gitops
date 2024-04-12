@@ -21,7 +21,6 @@ spec:
 
     - nfd-system/node-feature-discovery
 
-    - dns-system/pihole-config
     - dns-system/pihole
     - dns-system/external-dns
     - dns-system/coredns-etcd
