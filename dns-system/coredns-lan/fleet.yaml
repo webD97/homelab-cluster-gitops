@@ -46,6 +46,10 @@ helm:
             parameters: homelab.cloudbending.dev
             configBlock: |-
               endpoint http://coredns-etcd:2379
+          
+          # Forward internet to 8.8.8.8 (for now)
+          - name: forward
+            parameters: . 8.8.8.8
 
           # Cache up to 15min
           - name: cache
