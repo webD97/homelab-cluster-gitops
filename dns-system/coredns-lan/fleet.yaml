@@ -51,9 +51,8 @@ helm:
           - name: forward
             parameters: . 10.43.151.72
 
-          # Cache up to 15min
           - name: cache
-            parameters: 1800
+            parameters: 60
 
           - name: loop
           - name: reload
