@@ -16,4 +16,5 @@ helm:
     disasterRecovery:
       enabled: true
       pvc:
+        storageClassName: nfs-csi
         size: 2Gi
