@@ -47,9 +47,9 @@ helm:
             configBlock: |-
               endpoint http://coredns-etcd:2379
           
-          # Forward internet to 8.8.8.8 (for now)
+          # Forward internet to quad9.net
           - name: forward
-            parameters: . 8.8.8.8
+            parameters: . 9.9.9.9
 
           # Cache up to 15min
           - name: cache
