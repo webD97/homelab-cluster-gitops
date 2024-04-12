@@ -23,6 +23,3 @@ helm:
       pvc:
         storageClassName: nfs-csi
         size: 2Gi
-    
-    volumePermissions:
-      enabled: true
