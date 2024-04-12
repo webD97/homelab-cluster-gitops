@@ -1,0 +1,58 @@
+defaultNamespace: dns-system
+
+helm:
+  repo: https://coredns.github.io/helm
+  chart: coredns
+  version: 1.28.2
+  releaseName: coredns-lan
+  values:
+    isClusterService: false
+
+    replicaCount: 3
+
+    serviceType: LoadBalancer
+
+    readinessProbe:
+      initialDelaySeconds: 15
+
+    podDisruptionBudget:
+      minAvilable: 1
+
+    servers:
+      - zones:
+          - zone: .
+        port: 53
+        # If serviceType is nodePort you can specify nodePort here
+        # nodePort: 30053
+        # hostPort: 53
+        plugins:
+          - name: errors
+
+          # Serves a /health endpoint on :8080, required for livenessProbe
+          - name: health
+            configBlock: |-
+              lameduck 5s
+
+          # Serves a /ready endpoint on :8181, required for readinessProbe
+          - name: ready
+
+          # Serves a /metrics endpoint on :9153, required for serviceMonitor
+          - name: prometheus
+            parameters: 0.0.0.0:9153
+
+          # Forward local domain of LAN to router
+          - name: forward
+            parameters: fritz.box 192.168.32.1
+          
+          # Forward local homelab domain to etcd managed by external-dns
+          - name: etcd
+            parameters: homelab.cloudbending.dev
+            configBlock: |-
+              endpoint http://coredns-etcd:2379
+
+          # Cache up to 15min
+          - name: cache
+            parameters: 1800
+
+          - name: loop
+          - name: reload
