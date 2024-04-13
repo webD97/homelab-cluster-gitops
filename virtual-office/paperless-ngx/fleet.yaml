@@ -1,0 +1,47 @@
+defaultNamespace: virtual-office
+
+helm:
+  repo: https://charts.gabe565.com
+  chart: paperless-ngx
+  version: 0.10.0
+  values:
+    env:
+      TZ: Europe/Berlin
+      PAPERLESS_CONSUMER_POLLING: "60"
+    
+    persistence:
+      data:
+        enabled: true
+        accessMode: ReadWriteOnce
+        size: 50Gi
+      media:
+        enabled: true
+        accessMode: ReadWriteOnce
+        size: 50Gi
+      export:
+        enabled: true
+        accessMode: ReadWriteOnce
+        size: 1Gi
+      consume:
+        enabled: true
+        accessMode: ReadWriteOnce
+        size: 1Gi
+
+    postgresql:
+      enabled: true
+      auth:
+        database: paperless
+        existingSecret: postgres
+      primary:
+        persistence:
+          enabled: true
+          size: 10Gi
+
+    redis:
+      enabled: true
+      auth:
+        enabled: true
+      master:
+        persistence:
+          enabled: true
+          size: 10Gi
