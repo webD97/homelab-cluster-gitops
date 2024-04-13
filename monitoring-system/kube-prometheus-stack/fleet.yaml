@@ -11,6 +11,17 @@ helm:
   version: 58.1.0
   releaseName: kube-prometheus-stack
   values:
+    prometheus:
+      prometheusSpec:
+        retention: 30d
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              accessModes:
+                - ReadWriteOnce
+              resources:
+                requests:
+                  storage: 20Gi
     prometheus-node-exporter:
       tolerations:
         - effect: NoSchedule
