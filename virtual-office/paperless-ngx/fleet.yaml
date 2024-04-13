@@ -31,7 +31,7 @@ helm:
       enabled: true
       auth:
         database: paperless
-        existingSecret: postgres
+        existingSecret: homelab-virtual-office-paperless-ngx-postgresql
       primary:
         persistence:
           enabled: true
