@@ -1,7 +1,7 @@
 apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
-  name: homelab-cluster
+  name: homelab
   namespace: fleet-local
   annotations:
     helm.sh/resource-policy: keep
