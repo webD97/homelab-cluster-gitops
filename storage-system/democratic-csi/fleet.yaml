@@ -6,9 +6,10 @@ helm:
   version: 0.14.6
   releaseName: democratic-csi
   values:
+    # Based on https://github.com/democratic-csi/charts/blob/b08d58f079d3ac812a75454c4d992f10c830af04/stable/democratic-csi/examples/freenas-nfs.yaml
     csiDriver:
       name: zfs-nfs
-      fsGroupPolicy: None
+      fsGroupPolicy: File
     driver:
       existingConfigSecret: driver-config
       config:
@@ -27,7 +28,7 @@ helm:
           fsType: nfs
         mountOptions:
           - noatime
-          - nfsvers=4
+          - nfsvers=3
         secrets:
           provisioner-secret:
           controller-publish-secret:
