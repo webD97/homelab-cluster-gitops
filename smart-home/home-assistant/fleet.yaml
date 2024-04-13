@@ -7,5 +7,5 @@ helm:
   releaseName: home-assistant
   values:
     persistence:
-      enabled: false
+      enabled: true
       size: 5Gi
