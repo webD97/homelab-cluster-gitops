@@ -6,6 +6,8 @@ helm:
   version: 0.1.3
   releaseName: generic-device-plugin
   values:
+    image:
+      pullPolicy: IfNotPresent
     env:
       DOMAIN: generic.dev
     config:
