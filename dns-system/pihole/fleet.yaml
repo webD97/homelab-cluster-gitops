@@ -40,9 +40,8 @@ helm:
       liveness:
         initialDelaySeconds: 30
     
-    # Disabled until storage problems are resolved
     persistentVolumeClaim:
-      enabled: false
+      enabled: true
       size: 1Gi
 
     podDisruptionBudget:
