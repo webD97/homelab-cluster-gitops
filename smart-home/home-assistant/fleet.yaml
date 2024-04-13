@@ -9,3 +9,8 @@ helm:
     persistence:
       enabled: true
       size: 5Gi
+    resources:
+      requests:
+        generic.dev/tty-skyconnect: 1
+      limits:
+        generic.dev/tty-skyconnect: 1
