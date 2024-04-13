@@ -19,7 +19,7 @@ spec:
     - storage-system/democratic-csi-config
     - storage-system/democratic-csi
 
-    - monitoring-system/kube-prometheus-stack/fleet.yaml
+    - monitoring-system/kube-prometheus-stack
 
     - nfd-system/node-feature-discovery
 
