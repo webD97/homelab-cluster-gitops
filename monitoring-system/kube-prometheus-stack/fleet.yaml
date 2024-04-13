@@ -11,6 +11,12 @@ helm:
   version: 58.1.0
   releaseName: kube-prometheus-stack
   values:
+    prometheus-node-exporter:
+      tolerations:
+        - effect: NoSchedule
+          operator: Exists
+        - effect: CriticalAddonsOnly
+          operator: Exists
     extraManifests:
       - apiVersion: gateway.networking.k8s.io/v1
         kind: HTTPRoute
