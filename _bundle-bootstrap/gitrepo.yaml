@@ -3,6 +3,8 @@ kind: GitRepo
 metadata:
   name: homelab-cluster
   namespace: fleet-local
+  annotations:
+    helm.sh/resource-policy: keep
 spec:
   repo: "https://github.com/webD97/homelab-cluster-gitops"
   branch: main
