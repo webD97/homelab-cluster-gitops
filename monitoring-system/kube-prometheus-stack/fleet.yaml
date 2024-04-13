@@ -15,7 +15,8 @@ helm:
       tolerations:
         - effect: NoSchedule
           operator: Exists
-        - effect: CriticalAddonsOnly
+        - key: CriticalAddonsOnly
+          effect: NoExecute
           operator: Exists
     extraManifests:
       - apiVersion: gateway.networking.k8s.io/v1
