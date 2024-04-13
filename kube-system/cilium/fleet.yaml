@@ -34,6 +34,9 @@ helm:
     gatewayAPI:
       enabled: true
     
+    loadBalancer:
+      mode: dsr
+    
     l2announcements:
       enabled: true
     
