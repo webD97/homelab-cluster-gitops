@@ -1,1 +1,6 @@
 defaultNamespace: 3d-printing
+
+dependsOn:
+  - selector:
+      matchLabels:
+        gateway-api-crds: "true"
