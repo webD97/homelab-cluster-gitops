@@ -11,4 +11,4 @@ spec:
   rules:
     - backendRefs:
         - name: home-assistant
-          port: 8123
+          port: 8080
