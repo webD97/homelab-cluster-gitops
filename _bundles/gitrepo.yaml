@@ -40,3 +40,4 @@ spec:
     - 3d-printing/octoprint
 
     - smart-home/home-assistant
+    - smart-home/home-assistant-extras

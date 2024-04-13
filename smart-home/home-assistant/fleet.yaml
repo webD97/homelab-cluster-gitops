@@ -4,6 +4,7 @@ helm:
   repo: https://pajikos.github.io/home-assistant-helm-chart/
   chart: home-assistant
   version: 0.2.49
+  releaseName: home-assistant
   values:
     persistence:
       enabled: false
