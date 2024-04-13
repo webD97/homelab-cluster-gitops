@@ -51,7 +51,7 @@ helm:
           
           # Forward internet to pihole or quad9 as a fallback
           - name: forward
-            parameters: . 10.43.151.72 9.9.9.9
+            parameters: . 10.43.128.146 9.9.9.9
             configBlock: |-
               policy sequential
 
