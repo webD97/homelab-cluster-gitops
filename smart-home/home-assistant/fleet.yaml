@@ -1,0 +1,10 @@
+defaultNamespace: smart-home
+
+helm:
+  repo: https://pajikos.github.io/home-assistant-helm-chart/
+  chart: home-assistant
+  version: 0.2.49
+  values:
+    persistence:
+      enabled: false
+      size: 5Gi

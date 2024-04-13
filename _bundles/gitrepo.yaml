@@ -38,3 +38,5 @@ spec:
     - renovate/renovate-bot
 
     - 3d-printing/octoprint
+
+    - smart-home/home-assistant
