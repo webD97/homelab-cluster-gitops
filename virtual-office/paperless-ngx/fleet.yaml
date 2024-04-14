@@ -37,6 +37,8 @@ helm:
         persistence:
           enabled: true
           size: 10Gi
+      image:
+        tag: 15.4.0-debian-11-r45
 
     redis:
       enabled: true
