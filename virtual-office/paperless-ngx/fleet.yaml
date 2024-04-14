@@ -8,6 +8,7 @@ helm:
     env:
       TZ: Europe/Berlin
       PAPERLESS_CONSUMER_POLLING: "60"
+      PAPERLESS_URL: https://paperless.homelab.cloudbending.dev
     
     persistence:
       data:
