@@ -28,6 +28,8 @@ helm:
         accessMode: ReadWriteOnce
         size: 1Gi
 
+    # Beware of unexpected major updates.
+    # Useful if it happens: https://github.com/bitnami/charts/issues/14926#issuecomment-1815926198
     postgresql:
       enabled: true
       auth:
