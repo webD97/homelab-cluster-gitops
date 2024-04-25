@@ -6,9 +6,6 @@ helm:
   version: 0.2.51
   releaseName: home-assistant
   values:
-    image:
-      repository: ghcr.io/home-assistant/home-assistant
-      tag: 2024.4.4
     persistence:
       enabled: true
       size: 5Gi
