@@ -7,10 +7,7 @@ helm:
   values: 
     resourcesPreset: micro
 
-    replicaCount: 1
-
-    image:
-      debug: true
+    replicaCount: 3
 
     auth:
       rbac:
