@@ -15,13 +15,8 @@ helm:
         allowNoneAuthentication: true
 
     persistence:
-      enabled: false
+      enabled: true
       size: 2Gi
     
     disasterRecovery:
       enabled: false
-      cronjob:
-        schedule: "0 */2 * * *"
-      pvc:
-        storageClassName: nfs-csi
-        size: 2Gi
