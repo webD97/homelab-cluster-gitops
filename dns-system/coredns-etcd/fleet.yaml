@@ -15,7 +15,7 @@ helm:
         allowNoneAuthentication: true
 
     persistence:
-      enabled: true
+      enabled: false
       size: 2Gi
     
     disasterRecovery:
