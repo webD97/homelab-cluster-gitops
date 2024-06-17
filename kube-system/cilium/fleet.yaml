@@ -15,7 +15,7 @@ helm:
   releaseName: cilium
   values:
     encryption:
-      enabled: true
+      enabled: false
       type: wireguard
     
     ipam:
