@@ -7,7 +7,7 @@ dependsOn:
 
 helm:
   chart: oci://registry-1.docker.io/bitnamicharts/external-dns
-  version: 7.5.6
+  version: 7.5.7
   releaseName: external-dns
   values:
     sources:
