@@ -10,6 +10,7 @@ helm:
   releaseName: cert-manager
   values:
     installCRDs: true
+    dns01RecursiveNameservers: "9.9.9.9"
     # This seems to be an upcoming feature:
     #crds:
     #  enabled: true
