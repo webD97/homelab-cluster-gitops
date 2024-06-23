@@ -10,7 +10,11 @@ helm:
   releaseName: cert-manager
   values:
     installCRDs: true
+    # Without this, cert-manager will fail with
+    # > Could not determine authoritative nameservers for _acme-challenge.homelab.cloudbending.dev.
+    # This is probably some interference with the local nameserver that handles the homelab domains.
     dns01RecursiveNameservers: "9.9.9.9:53"
+
     # This seems to be an upcoming feature:
     #crds:
     #  enabled: true
