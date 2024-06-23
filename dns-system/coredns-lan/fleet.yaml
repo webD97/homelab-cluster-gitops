@@ -19,6 +19,8 @@ helm:
 
     podDisruptionBudget:
       minAvailable: 1
+    
+    dns01RecursiveNameservers: "9.9.9.9"
 
     servers:
       - zones:
