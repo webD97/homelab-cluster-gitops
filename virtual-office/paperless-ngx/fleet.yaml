@@ -3,7 +3,7 @@ defaultNamespace: virtual-office
 helm:
   repo: https://charts.gabe565.com
   chart: paperless-ngx
-  version: 0.18.0
+  version: 0.18.1
   values:
     env:
       TZ: Europe/Berlin
