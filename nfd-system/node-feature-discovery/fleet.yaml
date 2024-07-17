@@ -3,7 +3,7 @@ defaultNamespace: nfd-system
 helm:
   repo: https://kubernetes-sigs.github.io/node-feature-discovery/charts
   chart: node-feature-discovery
-  version: 0.16.2
+  version: 0.16.3
   releaseName: node-feature-discovery
   values:
     worker:
