@@ -18,6 +18,11 @@ helm:
       enabled: false
       type: wireguard
     
+    # Not supported with SELinux enabled:
+    # https://docs.cilium.io/en/stable/security/network/proxy/envoy/#known-limitations
+    envoy:
+      enabled: false
+    
     ipam:
       operator:
         clusterPoolIPv4PodCIDRList: 10.42.0.0/16
