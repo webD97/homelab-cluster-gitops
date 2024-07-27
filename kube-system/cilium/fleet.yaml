@@ -14,8 +14,6 @@ helm:
   version: "1.16.0"
   releaseName: cilium
   values:
-    upgradeCompatibility: "1.15"
-    
     encryption:
       enabled: false
       type: wireguard
