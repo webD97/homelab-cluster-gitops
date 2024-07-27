@@ -12,6 +12,15 @@
       ],
       "matchCurrentVersion": "!/^0/",
       "automerge": true
+    },
+    {
+      "matchPackageNames": [
+        "cilium"
+      ],
+      "matchUpdateTypes": [
+        "major", "minor"
+      ],
+      "automerge": false
     }
   ],
   "ignoreTests": true
