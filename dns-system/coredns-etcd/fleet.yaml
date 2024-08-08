@@ -2,7 +2,7 @@ defaultNamespace: dns-system
 
 helm:
   chart: oci://registry-1.docker.io/bitnamicharts/etcd
-  version: 10.2.11
+  version: 10.2.12
   releaseName: coredns-etcd
   values: 
     resourcesPreset: micro
