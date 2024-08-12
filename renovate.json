@@ -21,6 +21,15 @@
         "major", "minor"
       ],
       "automerge": false
+    },
+    {
+      "matchPackageNames": [
+        "home-assistant"
+      ],
+      "matchUpdateTypes": [
+        "minior", "patch"
+      ],
+      "automerge": true
     }
   ],
   "ignoreTests": true
