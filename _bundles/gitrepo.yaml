@@ -44,3 +44,5 @@ spec:
 
     - virtual-office/paperless-ngx
     - virtual-office/paperless-ngx-extras
+
+    - cnpg-system/cnpg
