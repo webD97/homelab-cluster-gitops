@@ -3,7 +3,7 @@ defaultNamespace: dns-system
 helm:
   repo: https://mojo2600.github.io/pihole-kubernetes/
   chart: pihole
-  version: "2.26.1"
+  version: "2.26.2"
   releaseName: pihole
   values:
     # This should be 1 until I find out how to do sticky sessions in gateway-api.
