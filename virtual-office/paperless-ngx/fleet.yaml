@@ -13,7 +13,7 @@ helm:
       PAPERLESS_OCR_USER_ARGS: '{"invalidate_digital_signatures": true}'
 
     image:
-      tag: 2.12.1
+      tag: 2.13.4
 
     persistence:
       data:
