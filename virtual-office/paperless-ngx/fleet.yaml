@@ -11,7 +11,10 @@ helm:
       PAPERLESS_URL: https://paperless.homelab.cloudbending.dev
       # Required in order to import signed documents
       PAPERLESS_OCR_USER_ARGS: '{"invalidate_digital_signatures": true}'
-    
+
+    image:
+      tag: 2.12.1
+
     persistence:
       data:
         enabled: true
