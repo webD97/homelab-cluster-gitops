@@ -17,26 +17,26 @@ spec:
         app.kubernetes.io/name: octoprint
     spec:
       containers:
-      - name: octoprint
-        image: octoprint/octoprint:1.10.0
-        ports:
-        - containerPort: 80
-          name: http
-          protocol: TCP
-        volumeMounts:
-        - mountPath: /octoprint
-          name: data
-        env:
-          - name: "ENABLE_MJPG_STREAMER"
-            value: "false"
-          - name: "TZ"
-            value: "Europe/Berlin"
-          - name: "OCTOPRINT_PORT"
-            value: "80"
-        resources:
-          limits:
-            generic.dev/tty-anycubic: 1
+        - name: octoprint
+          image: octoprint/octoprint:1.10.3
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /octoprint
+              name: data
+          env:
+            - name: "ENABLE_MJPG_STREAMER"
+              value: "false"
+            - name: "TZ"
+              value: "Europe/Berlin"
+            - name: "OCTOPRINT_PORT"
+              value: "80"
+          resources:
+            limits:
+              generic.dev/tty-anycubic: 1
       volumes:
-      - name: data
-        persistentVolumeClaim:
-          claimName: octoprint
+        - name: data
+          persistentVolumeClaim:
+            claimName: octoprint
