@@ -3,7 +3,7 @@ defaultNamespace: storage-system
 helm:
   repo: https://democratic-csi.github.io/charts/
   chart: democratic-csi
-  version: 0.14.6
+  version: 0.14.7
   releaseName: democratic-csi
   values:
     # Based on https://github.com/democratic-csi/charts/blob/b08d58f079d3ac812a75454c4d992f10c830af04/stable/democratic-csi/examples/freenas-nfs.yaml
