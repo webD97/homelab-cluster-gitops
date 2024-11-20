@@ -8,5 +8,5 @@ dependsOn:
 ignore:
   conditions:
     # Ignored because pod cannot start if serial port not present
-    - type: Available
+    - type: Ready
       status: "False"
