@@ -4,3 +4,9 @@ dependsOn:
   - selector:
       matchLabels:
         gateway-api-crds: "true"
+
+ignore:
+  conditions:
+    # Ignored because pod cannot start if serial port not present
+    - type: Available
+      status: "False"
