@@ -3,7 +3,7 @@ defaultNamespace: smart-home
 helm:
   repo: https://pajikos.github.io/home-assistant-helm-chart/
   chart: home-assistant
-  version: 0.2.88
+  version: 0.2.89
   releaseName: home-assistant
   values:
     persistence:
