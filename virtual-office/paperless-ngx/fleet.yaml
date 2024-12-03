@@ -49,6 +49,7 @@ helm:
       enabled: true
       auth:
         enabled: true
+        existingSecret: homelab-virtual-office-paperless-ngx-redis
       master:
         persistence:
           enabled: true
