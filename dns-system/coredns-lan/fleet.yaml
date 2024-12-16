@@ -41,18 +41,18 @@ helm:
 
           # Rewrite additional local DNS suffix used for TLS certs
           - name: rewrite
-            parameters: name suffix .home.cloudbending.dev. .fritz.box.
+            parameters: name suffix .home.cloudbending.dev. .fritz.box. answer auto
 
           # Forward local domain of LAN to router
           - name: forward
             parameters: fritz.box 192.168.32.1
-          
+
           # Forward local homelab domain to etcd managed by external-dns
           - name: etcd
             parameters: homelab.cloudbending.dev
             configBlock: |-
               endpoint http://coredns-etcd:2379
-          
+
           # Forward internet to pihole or quad9 as a fallback
           - name: forward
             parameters: . 10.43.128.146 9.9.9.9
