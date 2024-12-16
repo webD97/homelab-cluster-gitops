@@ -9,4 +9,4 @@ spec:
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  secretName: letsencrypt
+  secretName: homematic-ccu
