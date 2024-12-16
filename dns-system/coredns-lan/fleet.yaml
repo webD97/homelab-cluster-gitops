@@ -41,8 +41,7 @@ helm:
 
           # Rewrite additional local DNS suffix used for TLS certs
           - name: rewrite
-            configBlock: |
-              rewrite name suffix .home.cloudbending.dev. .fritz.box.
+            parameters: name suffix .home.cloudbending.dev. .fritz.box.
 
           # Forward local domain of LAN to router
           - name: forward
