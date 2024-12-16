@@ -39,6 +39,11 @@ helm:
           - name: prometheus
             parameters: 0.0.0.0:9153
 
+          # Rewrite additional local DNS suffix used for TLS certs
+          - name: rewrite
+            configBlock: |
+              rewrite name suffix .home.cloudbending.dev. .fritz.box.
+
           # Forward local domain of LAN to router
           - name: forward
             parameters: fritz.box 192.168.32.1
