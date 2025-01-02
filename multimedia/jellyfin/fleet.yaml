@@ -1,0 +1,25 @@
+defaultNamespace: multimedia
+
+helm:
+  repo: https://jellyfin.github.io/jellyfin-helm
+  chart: jellyfin
+  version: 2.1.0
+  releaseName: jellyfin
+  values:
+    persistence:
+      media:
+        size: 1024Gi
+    securityContext:
+      capabilities:
+        add:
+          - "SYS_ADMIN"
+        drop:
+          - "ALL"
+      privileged: false
+    extraVolumes:
+      - name: dri
+        hostPath:
+          path: /dev/dri
+    extraVolumeMounts:
+      - name: dri
+        mountPath: /dev/dri
