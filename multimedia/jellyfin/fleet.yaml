@@ -9,17 +9,8 @@ helm:
     persistence:
       media:
         size: 1024Gi
-    securityContext:
-      capabilities:
-        add:
-          - "SYS_ADMIN"
-        drop:
-          - "ALL"
-      privileged: false
-    volumes:
-      - name: dri
-        hostPath:
-          path: /dev/dri
-    volumeMounts:
-      - name: dri
-        mountPath: /dev/dri
+    resources:
+      requests:
+        generic.dev/render: 1
+      limits:
+        generic.dev/render: 1
