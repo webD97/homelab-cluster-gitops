@@ -16,10 +16,10 @@ helm:
         drop:
           - "ALL"
       privileged: false
-    extraVolumes:
+    volumes:
       - name: dri
         hostPath:
           path: /dev/dri
-    extraVolumeMounts:
+    volumeMounts:
       - name: dri
         mountPath: /dev/dri
