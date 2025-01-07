@@ -48,3 +48,5 @@ spec:
 
     - multimedia/jellyfin
     - multimedia/jellyfin-extras
+
+    - ai-system/openwebui

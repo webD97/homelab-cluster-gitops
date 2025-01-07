@@ -1,0 +1,14 @@
+defaultNamespace: ai-system
+
+helm:
+  repo: https://helm.openwebui.com/
+  chart: open-webui
+  version: 5.1.1
+  releaseName: openwebui
+  values:
+    ollama:
+      persistentVolume:
+        enabled: true
+        size: 100Gi
+    pipelines:
+      enabled: false
