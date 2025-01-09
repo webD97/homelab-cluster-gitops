@@ -24,7 +24,6 @@ helm:
                   - path: /dev/serial/by-id/usb-Nabu_Casa_SkyConnect*
                     mountPath: /dev/ttyUSB0
           - name: render
-            count: 2
             groups:
               - paths:
                   - path: /dev/dri/renderD128
