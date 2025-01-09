@@ -6,6 +6,9 @@ helm:
   version: 2.1.0
   releaseName: jellyfin
   values:
+    image:
+      repository: docker.io/jellyfin/jellyfin
+      tag: "10.10.3"
     persistence:
       media:
         size: 1024Gi
