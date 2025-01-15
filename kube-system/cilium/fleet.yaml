@@ -34,7 +34,7 @@ helm:
     kubeProxyReplacement: true
   
     operator:
-      replicas: 1
+      replicas: 2
     
     gatewayAPI:
       enabled: true
