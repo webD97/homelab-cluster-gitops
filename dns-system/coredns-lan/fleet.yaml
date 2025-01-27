@@ -3,7 +3,7 @@ defaultNamespace: dns-system
 helm:
   repo: https://coredns.github.io/helm
   chart: coredns
-  version: 1.37.3
+  version: 1.38.1
   releaseName: coredns-lan
   values:
     isClusterService: false
