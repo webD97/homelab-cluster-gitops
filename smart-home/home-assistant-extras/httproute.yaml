@@ -23,7 +23,7 @@ spec:
       namespace: kube-system
       sectionName: homematic-callback
   hostnames:
-    - "callback.home-assistant.homelab.cloudbending.dev"
+    - "home-assistant-callback.homelab.cloudbending.dev"
   rules:
     - backendRefs:
         - name: home-assistant
