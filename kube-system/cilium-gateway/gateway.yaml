@@ -14,6 +14,22 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-        - kind: Secret
-          group: ""
-          name: letsencrypt
+          - kind: Secret
+            group: ""
+            name: letsencrypt
+    # Homematic will use this for its callback to Home Assistant
+    - protocol: HTTPS
+      port: 30815
+      name: homematic-callback
+      allowedRoutes:
+        namespaces:
+          from: Selector
+          selector:
+            matchLabels:
+              kubernetes.io/metadata.name: smart-home
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - kind: Secret
+            group: ""
+            name: letsencrypt
