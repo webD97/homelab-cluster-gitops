@@ -27,4 +27,4 @@ spec:
   rules:
     - backendRefs:
         - name: home-assistant
-          port: 8080
+          port: 34711
