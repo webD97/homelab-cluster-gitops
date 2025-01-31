@@ -19,9 +19,8 @@ metadata:
   name: homematic-callback
 spec:
   parentRefs:
-    - name: default-gateway
+    - name: homematic-callback-gateway
       namespace: kube-system
-      sectionName: homematic-callback
   hostnames:
     - "home-assistant-callback.homelab.cloudbending.dev"
   rules:

@@ -17,9 +17,16 @@ spec:
           - kind: Secret
             group: ""
             name: letsencrypt
-    # Homematic will use this for its callback to Home Assistant
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: homematic-callback-gateway
+spec:
+  gatewayClassName: cilium
+  listeners:
     - protocol: HTTPS
-      port: 30815
+      port: 443
       name: homematic-callback
       allowedRoutes:
         namespaces:
