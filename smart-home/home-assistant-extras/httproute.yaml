@@ -25,5 +25,5 @@ spec:
     - "home-assistant-callback.homelab.cloudbending.dev"
   rules:
     - backendRefs:
-        - name: home-assistant
+        - name: homematic-callback
           port: 34711
