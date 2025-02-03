@@ -25,6 +25,7 @@ metadata:
 spec:
   gatewayClassName: cilium
   listeners:
+    # Homematic does not support using HTTPS here!
     - protocol: HTTP
       port: 34711
       name: homematic-callback
