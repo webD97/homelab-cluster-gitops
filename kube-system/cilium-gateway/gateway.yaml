@@ -25,7 +25,7 @@ metadata:
 spec:
   gatewayClassName: cilium
   listeners:
-    - protocol: HTTPS
+    - protocol: HTTP
       port: 34711
       name: homematic-callback
       allowedRoutes:
@@ -34,9 +34,3 @@ spec:
           selector:
             matchLabels:
               kubernetes.io/metadata.name: smart-home
-      tls:
-        mode: Terminate
-        certificateRefs:
-          - kind: Secret
-            group: ""
-            name: letsencrypt
