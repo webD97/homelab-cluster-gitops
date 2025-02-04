@@ -12,6 +12,7 @@ spec:
   paths:
     - kube-system/gateway-api
     - kube-system/cilium
+    - kube-system/cilium-preflight
     - kube-system/cilium-l2-config
     - kube-system/cilium-gateway
     - kube-system/cilium-hubble-expose
