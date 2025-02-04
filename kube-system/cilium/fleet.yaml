@@ -42,6 +42,9 @@ helm:
     l2announcements:
       enabled: true
 
+    bpf:
+      masquerade: true
+
     k8sClientRateLimit:
       qps: 30
       burst: 45
