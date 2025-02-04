@@ -6,7 +6,7 @@ labels:
 helm:
   repo: https://charts.jetstack.io
   chart: cert-manager
-  version: v1.16.3
+  version: v1.17.0
   releaseName: cert-manager
   values:
     installCRDs: true
