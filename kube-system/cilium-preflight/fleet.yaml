@@ -1,11 +1,8 @@
-# helm install cilium-preflight cilium/cilium --version 1.17.0 \
-#   --namespace=kube-system \
-#   --set preflight.enabled=true \
-#   --set agent=false \
-#   --set k8sServiceHost=API_SERVER_IP \
-#   --set k8sServicePort=API_SERVER_PORT
-
 defaultNamespace: kube-system
+
+overrideTargets:
+  - matchLabels:
+      x-cilium-preflight: enabled
 
 helm:
   repo: https://helm.cilium.io/
