@@ -8,7 +8,7 @@ helm:
   repo: https://helm.cilium.io/
   chart: cilium
   version: "1.17.0"
-  releaseName: cilium
+  releaseName: cilium-preflight
   values:
     # todo: use something stable
     k8sServiceHost: 192.168.37.5
