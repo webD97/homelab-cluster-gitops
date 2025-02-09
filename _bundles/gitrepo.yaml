@@ -11,6 +11,7 @@ spec:
   pollingInterval: 300s
   paths:
     - cattle-fleet-system/fleet-crd
+    - cattle-fleet-system/fleet
 
     - kube-system/gateway-api
     - kube-system/cilium

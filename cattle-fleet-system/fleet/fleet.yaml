@@ -1,0 +1,8 @@
+defaultNamespace: cattle-fleet-system
+
+helm:
+  repo: https://rancher.github.io/fleet-helm-charts/
+  chart: fleet
+  version: 0.11.3
+  releaseName: fleet
+  takeOwnership: true
