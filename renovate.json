@@ -18,7 +18,19 @@
         "cilium"
       ],
       "matchUpdateTypes": [
-        "major", "minor"
+        "major",
+        "minor"
+      ],
+      "automerge": false
+    },
+    {
+      "matchPackageNames": [
+        "fleet",
+        "fleet-crd"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor"
       ],
       "automerge": false
     },
@@ -27,7 +39,8 @@
         "home-assistant"
       ],
       "matchUpdateTypes": [
-        "minior", "patch"
+        "minor",
+        "patch"
       ],
       "automerge": true
     }
