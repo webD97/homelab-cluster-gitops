@@ -10,6 +10,8 @@ spec:
   branch: main
   pollingInterval: 300s
   paths:
+    - cattle-fleet-system/fleet-crd
+
     - kube-system/gateway-api
     - kube-system/cilium
     - kube-system/cilium-preflight
