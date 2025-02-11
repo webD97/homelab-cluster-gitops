@@ -3,7 +3,7 @@ defaultNamespace: ai-system
 helm:
   repo: https://helm.openwebui.com/
   chart: open-webui
-  version: 5.10.0
+  version: 5.10.1
   releaseName: openwebui
   values:
     ollama:
