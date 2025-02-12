@@ -1,0 +1,18 @@
+defaultNamespace: kube-system
+
+helm:
+  repo: https://sustainable-computing-io.github.io/kepler-helm-chart
+  chart: kepler
+  version: 0.5.13
+  releaseName: kepler
+  values:
+    serviceMonitor:
+      enabled: true
+      labels:
+        release: kube-prometheus-stack
+    tolerations:
+      - effect: NoSchedule
+        operator: Exists
+      - key: CriticalAddonsOnly
+        effect: NoExecute
+        operator: Exists

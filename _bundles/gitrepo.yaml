@@ -21,6 +21,7 @@ spec:
     - kube-system/cilium-hubble-expose
     - kube-system/sealed-secrets
     - kube-system/generic-device-plugin
+    - kube-system/kepler
 
     - storage-system/democratic-csi-config
     - storage-system/democratic-csi
