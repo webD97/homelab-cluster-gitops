@@ -26,7 +26,6 @@ helm:
     ipam:
       operator:
         clusterPoolIPv4PodCIDRList: 10.42.0.0/16
-      multiPoolPreAllocation: ""
 
     # todo: use something stable
     k8sServiceHost: 192.168.37.5
