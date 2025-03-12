@@ -4,53 +4,5 @@ helm:
   repo: https://charts.gabe565.com
   chart: paperless-ngx
   version: 0.24.1
-  values:
-    env:
-      TZ: Europe/Berlin
-      PAPERLESS_CONSUMER_POLLING: "60"
-      PAPERLESS_URL: https://paperless.homelab.cloudbending.dev
-      # Required in order to import signed documents
-      PAPERLESS_OCR_USER_ARGS: '{"invalidate_digital_signatures": true}'
-
-    image:
-      tag: 2.14.7
-
-    persistence:
-      data:
-        enabled: true
-        accessMode: ReadWriteOnce
-        size: 50Gi
-      media:
-        enabled: true
-        accessMode: ReadWriteOnce
-        size: 50Gi
-      export:
-        enabled: true
-        accessMode: ReadWriteOnce
-        size: 1Gi
-      consume:
-        enabled: true
-        accessMode: ReadWriteOnce
-        size: 1Gi
-
-    # Beware of unexpected major updates.
-    # Useful if it happens: https://github.com/bitnami/charts/issues/14926#issuecomment-1815926198
-    postgresql:
-      enabled: true
-      auth:
-        database: paperless
-        existingSecret: homelab-virtual-office-paperless-ngx-postgresql
-      primary:
-        persistence:
-          enabled: true
-          size: 10Gi
-
-    redis:
-      enabled: true
-      auth:
-        enabled: true
-        existingSecret: homelab-virtual-office-paperless-ngx-redis
-      master:
-        persistence:
-          enabled: true
-          size: 10Gi
+  valuesFiles:
+    - values.yaml
