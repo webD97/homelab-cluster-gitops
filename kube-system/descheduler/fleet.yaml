@@ -3,6 +3,6 @@ defaultNamespace: kube-system
 helm:
   repo: https://kubernetes-sigs.github.io/descheduler/
   chart: descheduler
-  version: "1.32.2"
+  version: "0.32.2"
   releaseName: descheduler
   values: {}
