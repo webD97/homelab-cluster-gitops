@@ -8,7 +8,7 @@ helm:
   values:
     isClusterService: false
 
-    replicaCount: 3
+    replicaCount: 2
 
     serviceType: LoadBalancer
     service:
@@ -27,6 +27,17 @@ helm:
       limits:
         cpu: 100m
         memory: 256Mi
+
+    topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: "kubernetes.io/hostname"
+        whenUnsatisfiable: "ScheduleAnyway"
+        labelSelector:
+          matchLabels:
+            app.kubernetes.io/instance: coredns-lan
+            app.kubernetes.io/name: coredns
+        matchLabelKeys:
+          - pod-template-hash
 
     servers:
       - zones:
