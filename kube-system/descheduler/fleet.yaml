@@ -5,4 +5,19 @@ helm:
   chart: descheduler
   version: "0.32.2"
   releaseName: descheduler
-  values: {}
+  values:
+    profiles:
+      - name: LowNodeUtilization
+        pluginConfig:
+          - name: "LowNodeUtilization"
+            args:
+              thresholds:
+                "pods": 80
+              targetThresholds:
+                "pods": 20
+              metricsUtilization:
+                metricsServer: true
+        plugins:
+          balance:
+            enabled:
+              - "LowNodeUtilization"
