@@ -11,7 +11,7 @@ helm:
       tag: "10.10.6"
     persistence:
       media:
-        size: 2Ti
+        size: 2560Gi
     resources:
       requests:
         generic.dev/render: 1
