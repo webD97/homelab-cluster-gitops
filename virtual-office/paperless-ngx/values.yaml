@@ -6,7 +6,7 @@ env:
   PAPERLESS_OCR_USER_ARGS: '{"invalidate_digital_signatures": true}'
 
 image:
-  tag: 2.14.7
+  tag: 2.15.0
 
 persistence:
   data:
