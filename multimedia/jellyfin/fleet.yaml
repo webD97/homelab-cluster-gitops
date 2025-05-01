@@ -8,7 +8,7 @@ helm:
   values:
     image:
       repository: docker.io/jellyfin/jellyfin
-      tag: "10.10.6"
+      tag: "10.10.7"
     persistence:
       media:
         size: 2560Gi
