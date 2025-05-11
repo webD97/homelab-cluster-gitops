@@ -3,7 +3,7 @@ defaultNamespace: renovate-bot
 helm:
   repo: https://docs.renovatebot.com/helm-charts
   chart: renovate
-  version: 40.11.2
+  version: 40.11.3
   releaseName: renovate
   values:
     envFrom:
