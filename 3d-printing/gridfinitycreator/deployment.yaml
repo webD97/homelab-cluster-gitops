@@ -23,7 +23,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - mountPath: /tmpfiles
-              name: tmpfilesc
+              name: tmpfiles
             - mountPath: /logs
               name: logs
           env:
