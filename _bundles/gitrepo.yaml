@@ -41,6 +41,7 @@ spec:
     - renovate/renovate-bot
 
     - 3d-printing/octoprint
+    - 3d-printing/gridfinitycreator
 
     - smart-home/home-assistant
     - smart-home/home-assistant-extras

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gridfinitycreator
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: gridfinitycreator
+      app.kubernetes.io/name: gridfinitycreator
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/instance: gridfinitycreator
+        app.kubernetes.io/name: gridfinitycreator
+    spec:
+      containers:
+        - name: gridfinitycreator
+          image: ghcr.io/webd97/gridfinitycreator:47a8a35
+          ports:
+            - containerPort: 5000
+              name: http
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /tmpfiles
+              name: tmpfilesc
+            - mountPath: /logs
+              name: logs
+          env:
+            - name: "TZ"
+              value: "Europe/Berlin"
+          resources: {}
+      volumes:
+        - name: tmpfiles
+          emptydir: {}
+        - name: logs
+          emptydir: {}
