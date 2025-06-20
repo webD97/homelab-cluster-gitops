@@ -54,18 +54,3 @@ helm:
         enabled: true
       ui:
         enabled: true
-
-    # Workaround for Fedora 42 where l2 announcements suddenly stopped working
-    extraInitContainers:
-      - name: assign-l2-ip
-        image: busybox
-        command:
-          - sh
-          - -c
-          - |
-            ip link add dummy0 type dummy
-            ip addr add 192.168.39.1/32 dev dummy0
-            ip addr add 192.168.39.2/32 dev dummy0
-            ip addr add 192.168.39.4/32 dev dummy0
-        securityContext:
-          privileged: true
