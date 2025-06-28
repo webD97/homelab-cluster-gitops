@@ -11,6 +11,9 @@ helm:
   version: 73.2.3
   releaseName: kube-prometheus-stack
   values:
+    crds:
+      upgradeJob:
+        enabled: true
     prometheus:
       prometheusSpec:
         retention: 30d
