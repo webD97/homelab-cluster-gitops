@@ -1,0 +1,50 @@
+apiVersion: ansible.cloudbending.dev/v1alpha1
+kind: PlaybookPlan
+metadata:
+  name: k3s-update
+spec:
+  image: docker.io/serversideup/ansible-core:2.18
+  triggers:
+    immediate: true
+  inventory:
+    - name: k3s
+      hosts:
+        fromNodes:
+          matchLabels:
+            node.kubernetes.io/instance-type: k3s
+  executionStrategy:
+    ssh:
+      user: admin
+      secretRef:
+        name: k3s-node-ssh
+  variables:
+    inline:
+      k3s_version: v1.33.2+k3s1
+      k3s_checksum: sha256:a0b8c48bee8588289d2249c3ce2bc58afb273dc7c13057c9b65e56de74c7ceeb
+  template: |
+    - hosts: k3s
+
+      handlers:
+        - name: Restart_k3s
+          become: true
+          ansible.builtin.systemd:
+            name: k3s.service
+            state: restarted
+
+        - name: Restorecon_k3s
+          become: true
+          ansible.builtin.command:
+            cmd: restorecon /usr/local/bin/k3s
+
+      tasks:
+        - name: Ensure k3s {{ k3s_version }} installed
+          become: true
+          notify: [Restart_k3s, Restorecon_k3s]
+          ansible.builtin.get_url:
+            url: "https://github.com/k3s-io/k3s/releases/download/{{ k3s_version }}/k3s"
+            checksum: "{{ k3s_checksum }}"
+            backup: true
+            dest: /usr/local/bin/k3s
+            owner: root
+            group: root
+            mode: "0755"
