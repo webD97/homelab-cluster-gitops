@@ -6,6 +6,9 @@ helm:
   version: 2.21.3
   releaseName: uptime-kuma
   values:
+    image:
+      repo: docker.io/louislam/uptime-kuma
+      tag: "1.23.16"
     volume:
       enabled: true
       size: 2Gi
