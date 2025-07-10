@@ -26,6 +26,7 @@ spec:
     - storage-system/democratic-csi
 
     - monitoring-system/kube-prometheus-stack
+    - monitoring-system/uptime-kuma
 
     - dns-system/pihole
     - dns-system/external-dns

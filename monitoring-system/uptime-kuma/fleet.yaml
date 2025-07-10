@@ -1,0 +1,11 @@
+defaultNamespace: monitoring-system
+
+helm:
+  repo: https://helm.irsigler.cloud
+  chart: uptime-kuma
+  version: 2.21.3
+  releaseName: uptime-kuma
+  values:
+    volume:
+      enabled: true
+      size: 2Gi
