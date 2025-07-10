@@ -27,6 +27,7 @@ spec:
 
     - monitoring-system/kube-prometheus-stack
     - monitoring-system/uptime-kuma
+    - monitoring-system/uptime-kuma-extras
 
     - dns-system/pihole
     - dns-system/external-dns
