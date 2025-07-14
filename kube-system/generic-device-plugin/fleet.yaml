@@ -28,3 +28,8 @@ helm:
               - paths:
                   - path: /dev/dri/renderD128
                     mountPath: /dev/dri/renderD128
+          - name: webcam
+            groups:
+              - paths:
+                  - path: /dev/video0
+                    mountPath: /dev/video0
