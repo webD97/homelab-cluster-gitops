@@ -10,6 +10,10 @@ helm:
     # Otherwise we're getting redirect loops
     replicaCount: 1
 
+    image:
+      repository: docker.io/pihole/pihole
+      tag: "2025.07.1"
+
     virtualHost: pihole.homelab.cloudbending.dev
 
     DNS1: 9.9.9.11
@@ -19,27 +23,27 @@ helm:
       type: ClusterIP
       https:
         enabled: false
-    
+
     serviceDns:
       type: ClusterIP
       mixedService: true
-    
+
     serviceDhcp:
       enabled: false
-    
+
     admin:
       enabled: true
       existingSecret: pihole-admin
-    
+
     extraEnvVars:
       QUERY_LOGGING: "false"
-    
+
     probes:
       readiness:
         initialDelaySeconds: 15
       liveness:
         initialDelaySeconds: 30
-    
+
     persistentVolumeClaim:
       enabled: true
       size: 1Gi
@@ -65,7 +69,7 @@ helm:
               creationTimestamp: null
               name: pihole-admin
               namespace: dns-system
-      
+
       - apiVersion: gateway.networking.k8s.io/v1
         kind: HTTPRoute
         metadata:
