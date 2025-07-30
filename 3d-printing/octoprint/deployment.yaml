@@ -28,7 +28,7 @@ spec:
               name: data
           env:
             - name: "ENABLE_MJPG_STREAMER"
-              value: "true"
+              value: "false"
             - name: "TZ"
               value: "Europe/Berlin"
             - name: "OCTOPRINT_PORT"
@@ -36,7 +36,6 @@ spec:
           resources:
             limits:
               generic.dev/tty-anycubic: 1
-              generic.dev/webcam: 1
       volumes:
         - name: data
           persistentVolumeClaim:
