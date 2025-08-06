@@ -20,6 +20,11 @@ spec:
         - 192.168.35.1/32 # Homematic CCU
         - 192.168.36.1/32 # Denon AVR
         - 192.168.36.2/32 # LG TV
+    - toCIDR:
+        - 157.249.81.141/32 # api.met.no
+        - 104.26.4.238/32 # wheels.home-assistant.io
+        - 104.26.5.238/32 # wheels.home-assistant.io
+        - 172.67.68.90/32 # wheels.home-assistant.io
   ingress:
     - fromEntities:
         - ingress
