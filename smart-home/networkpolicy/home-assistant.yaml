@@ -31,6 +31,12 @@ spec:
         - 151.101.192.223/32 # pypi.org
         - 104.20.45.44/32 # api.electricitymaps.com
         - 172.66.169.224/32 # api.electricitymaps.com
+        - 185.85.0.173/32 # warnung.bund.de
+        - 185.85.1.149/32 # warnung.bund.de
+        - 80.90.16.184/32 # warnung.bund.de
+        - 80.90.16.153/32 # warnung.bund.de
+        - 185.85.0.244/32 # warnung.bund.de
+        - 185.85.0.132/32 # warnung.bund.de
   ingress:
     - fromEntities:
         - ingress
