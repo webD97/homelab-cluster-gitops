@@ -25,6 +25,12 @@ spec:
         - 104.26.4.238/32 # wheels.home-assistant.io
         - 104.26.5.238/32 # wheels.home-assistant.io
         - 172.67.68.90/32 # wheels.home-assistant.io
+        - 151.101.0.223/32 # pypi.org
+        - 151.101.64.223/32 # pypi.org
+        - 151.101.128.223/32 # pypi.org
+        - 151.101.192.223/32 # pypi.org
+        - 104.20.45.44/32 # api.electricitymaps.com
+        - 172.66.169.224/32 # api.electricitymaps.com
   ingress:
     - fromEntities:
         - ingress
