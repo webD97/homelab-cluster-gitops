@@ -20,8 +20,22 @@ spec:
         - 192.168.35.1/32 # Homematic CCU
         - 192.168.36.1/32 # Denon AVR
         - 192.168.36.2/32 # LG TV
-        - 239.255.255.250/32 # SSDP
-        - 224.0.0.251/32 # mDNS
+    # Multicast DNS
+    - toCIDR:
+        - 224.0.0.251/32
+      toPorts:
+        - ports:
+            - port: "5353"
+              protocol: UDP
+    # Simple Service Discovery Protocol
+    - toCIDR:
+        - 239.255.255.250/32
+        - 255.255.255.255/32
+      toPorts:
+        - ports:
+            - port: "1900"
+              protocol: UDP
+    # HTTPS APIs on the internet
     - toCIDR:
         - 157.249.81.141/32 # api.met.no
         - 104.26.4.238/32 # wheels.home-assistant.io
@@ -41,6 +55,10 @@ spec:
         - 172.67.68.101/32 # ?
         - 104.26.6.112/32 # ?
         - 104.26.7.112/32 # ?
+      toPorts:
+        - ports:
+            - port: "443"
+              protocol: TCP
   ingress:
     - fromEntities:
         - ingress
