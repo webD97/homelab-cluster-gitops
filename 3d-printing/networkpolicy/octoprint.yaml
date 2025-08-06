@@ -1,0 +1,30 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: octoprint
+spec:
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            k8s-app: kube-dns
+            k8s:io.kubernetes.pod.namespace: kube-system
+    - toFQDNs:
+        - matchName: get.octoprint.org
+        - matchName: plugins.octoprint.org
+    - toCIDR:
+        - 159.69.6.198/32 # octoprint.org, plugins.octoprint.org, get.octoprint.org
+        - 151.101.0.223/32 # pypi.org
+        - 151.101.64.223/32 # pypi.org
+        - 151.101.128.223/32 # pypi.org
+        - 151.101.192.223/32 # pypi.org
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: octoprint
+  ingress:
+    - fromEntities:
+        - ingress
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/instance: home-assistant
+            app.kubernetes.io/name: home-assistant
+            k8s:io.kubernetes.pod.namespace: smart-home

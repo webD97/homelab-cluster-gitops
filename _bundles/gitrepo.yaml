@@ -44,6 +44,7 @@ spec:
 
     - 3d-printing/octoprint
     - 3d-printing/gridfinitycreator
+    - 3d-printing/networkpolicy
 
     - smart-home/home-assistant
     - smart-home/home-assistant-extras
