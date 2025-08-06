@@ -54,3 +54,5 @@ helm:
         enabled: true
       ui:
         enabled: true
+
+    policyAuditMode: "true"
