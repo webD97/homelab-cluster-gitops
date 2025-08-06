@@ -35,27 +35,25 @@ spec:
         - ports:
             - port: "1900"
               protocol: UDP
-    # HTTPS APIs on the internet
-    - toCIDR:
-        - 157.249.81.141/32 # api.met.no
-        - 104.26.4.238/32 # wheels.home-assistant.io
-        - 104.26.5.238/32 # wheels.home-assistant.io
-        - 172.67.68.90/32 # wheels.home-assistant.io
-        - 151.101.0.223/32 # pypi.org
-        - 151.101.64.223/32 # pypi.org
-        - 151.101.128.223/32 # pypi.org
-        - 151.101.192.223/32 # pypi.org
-        - 185.85.0.173/32 # warnung.bund.de
-        - 185.85.1.149/32 # warnung.bund.de
-        - 80.90.16.184/32 # warnung.bund.de
-        - 80.90.16.153/32 # warnung.bund.de
-        - 185.85.0.244/32 # warnung.bund.de
-        - 185.85.0.132/32 # warnung.bund.de
-        - 172.67.70.177/32 # ?
-        - 172.67.68.101/32 # ?
-        - 104.26.6.112/32 # ?
-        - 104.26.7.112/32 # ?
-        - 104.26.11.75/32 # ?
+    # HTTPS APIs on the internet (might have used ChatGPT to generate this list)
+    - toCIDRSet:
+        - cidr: 0.0.0.0/0
+          except:
+            - 10.0.0.0/8 # Private - RFC 1918
+            - 192.168.0.0/16 # Private - RFC 1918
+            - 172.16.0.0/12 # Private (RFC1918) - RFC 1918
+            - 127.0.0.0/8 # Loopback - RFC 1122
+            - 100.64.0.0/10 # Carrier-grade NAT (CGNAT) RFC 6598
+            - 169.254.0.0/16 # Link-local (APIPA) – RFC 3927
+            - 192.0.0.0/24 # RFC 6890
+            - 192.88.99.0/24 # IPv6 over IPv4 - RFC 3068
+            - 198.18.0.0/15 # RFC 2544
+            - 192.0.2.0/24 # RFC 5737
+            - 198.51.100.0/24 # RFC 5737
+            - 203.0.113.0/24 # RFC 5737
+            - 224.0.0.0/4 # Multicast RFC 5771
+            - 240.0.0.0/4 # RFC 1112
+            - 255.255.255.255/32 # RFC 919, RFC 922
       toPorts:
         - ports:
             - port: "443"
