@@ -21,6 +21,7 @@ spec:
         - 192.168.36.1/32 # Denon AVR
         - 192.168.36.2/32 # LG TV
         - 239.255.255.250/32 # SSDP
+        - 224.0.0.251/32 # mDNS
     - toCIDR:
         - 157.249.81.141/32 # api.met.no
         - 104.26.4.238/32 # wheels.home-assistant.io
