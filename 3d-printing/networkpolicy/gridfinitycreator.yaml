@@ -3,8 +3,6 @@ kind: CiliumNetworkPolicy
 metadata:
   name: gridfinitycreator
 spec:
-  egress:
-    - toEndpoints: []
   endpointSelector:
     matchLabels:
       app.kubernetes.io/name: gridfinitycreator
