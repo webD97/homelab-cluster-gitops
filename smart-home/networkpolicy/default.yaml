@@ -1,9 +1,9 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: default
+  name: default-deny-all
 spec:
   endpointSelector:
     matchLabels: {}
-  egress: []
-  ingress: []
+  egress: [{}]
+  ingress: [{}]
