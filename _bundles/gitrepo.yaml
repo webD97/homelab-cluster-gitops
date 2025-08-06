@@ -48,6 +48,7 @@ spec:
 
     - smart-home/home-assistant
     - smart-home/home-assistant-extras
+    - smart-home/networkpolicy
 
     - virtual-office/paperless-ngx
     - virtual-office/paperless-ngx-extras
