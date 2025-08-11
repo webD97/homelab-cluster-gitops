@@ -3,7 +3,7 @@ defaultNamespace: monitoring-system
 helm:
   repo: https://helm.irsigler.cloud
   chart: uptime-kuma
-  version: 2.21.3
+  version: 2.22.0
   releaseName: uptime-kuma
   values:
     image:
