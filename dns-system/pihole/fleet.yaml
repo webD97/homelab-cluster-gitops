@@ -12,7 +12,7 @@ helm:
 
     image:
       repository: docker.io/pihole/pihole
-      tag: "2025.07.1"
+      tag: "2025.08.0"
 
     virtualHost: pihole.homelab.cloudbending.dev
 
