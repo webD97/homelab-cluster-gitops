@@ -5,3 +5,6 @@ helm:
   chart: fleet
   version: 0.13.1
   releaseName: fleet
+  values:
+    helmops:
+      enabled: false
