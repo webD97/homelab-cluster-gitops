@@ -17,3 +17,10 @@ helm:
         generic.dev/render: 1
       limits:
         generic.dev/render: 1
+    volumes:
+      - name: cache
+        persistentVolumeClaim:
+          claimName: jellyfin-cache
+    volumeMounts:
+      - name: cache
+        mountPath: /cache
