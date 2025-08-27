@@ -1,0 +1,75 @@
+apiVersion: ansible.cloudbending.dev/v1beta1
+kind: PlaybookPlan
+metadata:
+  name: ccu-certificate-export
+  namespace: x509-system
+spec:
+  image: docker.io/serversideup/ansible-core:2.18
+  mode: Recurring
+  schedule: "00 07 * * *"
+  timeZone: Europe/Berlin
+  connectionStrategy:
+    ssh:
+      user: root
+      secretRef:
+        name: ccu-ssh
+  inventory:
+    - name: ccu
+      hosts:
+        fromList:
+          - ccu.fritz.box
+  template:
+    files:
+      - name: homematic-ccu-cert
+        secretRef:
+          name: homematic-ccu
+    variables:
+      - inline:
+          ansible_remote_tmp: /tmp
+    playbook: |
+      - hosts: all
+        gather_facts: no
+
+        handlers:
+          - name: Restart_webserver
+            ansible.builtin.raw: >
+              /etc/init.d/S50lighttpd reload
+
+        tasks:
+          - name: Concatenate certs and key
+            delegate_to: localhost
+            register: chain
+            changed_when: false
+            ansible.builtin.command:
+              cmd: cat files/homematic-ccu-cert/tls.key files/homematic-ccu-cert/tls.crt
+          
+          - name: Calculate target sha256 checksum
+            delegate_to: localhost
+            register: target_checksum
+            changed_when: false
+            ansible.builtin.shell:
+              cmd: |
+                cat <<'EOF' | sha256sum | cut -d' ' -f1
+                {{ chain.stdout }}
+                EOF
+          
+          - name: Calculate actual sha256 checksum
+            register: actual_checksum
+            changed_when: false
+            ansible.builtin.raw: >
+              sha256sum < /etc/config/server.pem | cut -d' ' -f1
+
+          - name: Set facts from checksums
+            delegate_to: localhost
+            ansible.builtin.set_fact:
+              target_checksum: "{{ target_checksum.stdout | trim }}"
+              actual_checksum: "{{ actual_checksum.stdout | trim }}"
+
+          - name: Write chain to server.pem
+            notify: [Restart_webserver]
+            when: target_checksum != actual_checksum
+            changed_when: true
+            ansible.builtin.raw: |
+              cat <<"EOF" > /etc/config/server.pem
+              {{ chain.stdout }}
+              EOF
