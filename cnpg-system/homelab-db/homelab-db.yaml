@@ -1,0 +1,11 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: homelab-db
+spec:
+  instances: 2
+
+  imageName: ghcr.io/cloudnative-pg/postgresql:17.6-bookworm
+
+  storage:
+    size: 5Gi

@@ -54,6 +54,7 @@ spec:
     - virtual-office/paperless-ngx-extras
 
     - cnpg-system/cnpg
+    - cnpg-system/homelab-db
 
     - multimedia/jellyfin
     - multimedia/jellyfin-extras
