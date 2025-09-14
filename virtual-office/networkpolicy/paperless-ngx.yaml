@@ -20,8 +20,8 @@ spec:
             k8s:io.kubernetes.pod.namespace: virtual-office
     - toEndpoints:
         - matchLabels:
-            app.kubernetes.io/name: redis
-            app.kubernetes.io/instance: homelab-virtual-office-paperless-ngx
+            app.kubernetes.io/instance: homelab-virtual-office-paperless-ngx-valkey
+            app.kubernetes.io/name: valkey
     - toCIDR:
         - 185.67.36.168/32 # posteo.de
         - 185.67.36.169/32 # posteo.de

@@ -1,0 +1,14 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: paperless-ngx-valkey
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/instance: homelab-virtual-office-paperless-ngx-valkey
+      app.kubernetes.io/name: valkey
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/name: paperless-ngx
+            k8s:io.kubernetes.pod.namespace: virtual-office
