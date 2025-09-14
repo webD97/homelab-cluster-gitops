@@ -45,14 +45,7 @@ persistence:
 # Beware of unexpected major updates.
 # Useful if it happens: https://github.com/bitnami/charts/issues/14926#issuecomment-1815926198
 postgresql:
-  enabled: true
-  auth:
-    database: paperless
-    existingSecret: homelab-virtual-office-paperless-ngx-postgresql
-  primary:
-    persistence:
-      enabled: true
-      size: 10Gi
+  enabled: false
 
 redis:
   enabled: true
