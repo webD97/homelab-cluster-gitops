@@ -61,5 +61,6 @@ spec:
 
     - multimedia/jellyfin
     - multimedia/jellyfin-extras
+    - multimedia/networkpolicy
 
     - ansible-system/cluster-playbooks
