@@ -16,8 +16,8 @@ spec:
             k8s:io.kubernetes.pod.namespace: kube-system
     - toEndpoints:
         - matchLabels:
-            app.kubernetes.io/name: postgresql
-            app.kubernetes.io/instance: homelab-virtual-office-paperless-ngx
+            cnpg.io/cluster: paperless-ngx-pg
+            k8s:io.kubernetes.pod.namespace: virtual-office
     - toEndpoints:
         - matchLabels:
             app.kubernetes.io/name: redis
