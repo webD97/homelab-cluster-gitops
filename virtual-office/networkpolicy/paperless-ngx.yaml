@@ -9,3 +9,23 @@ spec:
   ingress:
     - fromEntities:
         - ingress
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            k8s-app: kube-dns
+            k8s:io.kubernetes.pod.namespace: kube-system
+    - toEndpoints:
+        - matchLabels:
+            app.kubernetes.io/name: postgresql
+            app.kubernetes.io/instance: homelab-virtual-office-paperless-ngx
+    - toEndpoints:
+        - matchLabels:
+            app.kubernetes.io/name: redis
+            app.kubernetes.io/instance: homelab-virtual-office-paperless-ngx
+    - toCIDR:
+        - 185.67.36.168/32 # posteo.de
+        - 185.67.36.169/32 # posteo.de
+      toPorts:
+        - ports:
+            - port: "993"
+              protocol: TCP
