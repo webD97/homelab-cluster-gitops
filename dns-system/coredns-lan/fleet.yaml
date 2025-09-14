@@ -68,7 +68,7 @@ helm:
 
           # Forward local homelab domain to pihole (managed by external-dns)
           - name: forward
-            parameters: . 10.43.128.146
+            parameters: homelab.cloudbending.dev 10.43.128.146
 
           # Forward internet to pihole or quad9 as a fallback
           - name: forward
