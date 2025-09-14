@@ -41,6 +41,7 @@ spec:
 
     - renovate/renovate-token
     - renovate/renovate-bot
+    - renovate/networkpolicy
 
     - 3d-printing/octoprint
     - 3d-printing/gridfinitycreator
