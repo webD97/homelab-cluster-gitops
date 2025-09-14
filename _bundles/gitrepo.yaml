@@ -54,7 +54,7 @@ spec:
 
     - virtual-office/paperless-ngx
     - virtual-office/paperless-ngx-pg
-    - virtual-office/paperless-ngx-redis
+    - virtual-office/paperless-ngx-valkey
     - virtual-office/paperless-ngx-extras
     - virtual-office/networkpolicy
 
