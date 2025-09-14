@@ -32,6 +32,7 @@ spec:
 
     - dns-system/pihole
     - dns-system/external-dns
+    - dns-system/external-dns-extras
     - dns-system/coredns-etcd
     - dns-system/coredns-lan
 
