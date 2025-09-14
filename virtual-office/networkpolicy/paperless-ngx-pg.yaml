@@ -1,0 +1,15 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: paperless-ngx-pgc
+spec:
+  endpointSelector:
+    matchLabels:
+      cnpg.io/cluster: paperless-ngx-pg
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            k8s-app: kube-dns
+            k8s:io.kubernetes.pod.namespace: kube-system
+    - toEntities:
+        - kube-apiserver
