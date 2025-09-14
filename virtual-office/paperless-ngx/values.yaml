@@ -4,6 +4,22 @@ env:
   PAPERLESS_URL: https://paperless.homelab.cloudbending.dev
   # Required in order to import signed documents
   PAPERLESS_OCR_USER_ARGS: '{"invalidate_digital_signatures": true}'
+  PAPERLESS_DBHOST:
+    secretKeyRef:
+      name: paperless-ngx-pg-app
+      key: host
+  PAPERLESS_DBNAME:
+    secretKeyRef:
+      name: paperless-ngx-pg-app
+      key: dbname
+  PAPERLESS_DBUSER:
+    secretKeyRef:
+      name: paperless-ngx-pg-app
+      key: user
+  PAPERLESS_DBPASS:
+    secretKeyRef:
+      name: paperless-ngx-pg-app
+      key: password
 
 image:
   tag: 2.17.1
