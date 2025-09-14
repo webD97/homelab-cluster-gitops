@@ -20,6 +20,11 @@ env:
     secretKeyRef:
       name: paperless-ngx-pg-app
       key: password
+  PAPERLESS_REDIS: redis://:$(A_REDIS_PASSWORD)@homelab-virtual-office-paperless-ngx-valkey
+  A_REDIS_PASSWORD:
+    secretKeyRef:
+      name: homelab-virtual-office-paperless-ngx-valkey
+      key: password
 
 image:
   tag: 2.17.1
