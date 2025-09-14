@@ -20,9 +20,8 @@ helm:
     provider:
       name: pihole
     extraArgs: [--pihole-api-version=6]
-    envFrom:
-      - secretRef:
-          name: pihole-password
     env:
       - name: EXTERNAL_DNS_PIHOLE_SERVER
         value: http://pihole-web.dns-system.svc.cluster.local
+      - secretRef:
+          name: pihole-password
