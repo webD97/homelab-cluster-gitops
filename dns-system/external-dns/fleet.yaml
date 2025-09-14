@@ -6,8 +6,9 @@ dependsOn:
         sealed-secrets: "true"
 
 helm:
-  chart: oci://registry-1.docker.io/bitnamicharts/external-dns
-  version: 9.0.3
+  repo: https://kubernetes-sigs.github.io/external-dns/
+  chart: external-dns
+  version: 1.19.0
   releaseName: external-dns
   values:
     sources:
@@ -16,6 +17,7 @@ helm:
       - gateway-tlsroute
       - gateway-tcproute
       - gateway-udproute
-    provider: coredns
-    coredns:
-      etcdEndpoints: http://coredns-etcd:2379
+    provider:
+      name: coredns
+    env:
+      ETCD_URLS: http://coredns-etcd:2379
