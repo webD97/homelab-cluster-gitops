@@ -20,4 +20,5 @@ helm:
     provider:
       name: coredns
     env:
-      ETCD_URLS: http://coredns-etcd:2379
+      - name: ETCD_URLS
+        value: http://coredns-etcd:2379
