@@ -11,6 +11,10 @@ spec:
         - matchLabels:
             app.kubernetes.io/instance: cnpg
             k8s:io.kubernetes.pod.namespace: cnpg-system
+    - fromEndpoints:
+        - matchLabels:
+            cnpg.io/cluster: paperless-ngx-pg
+            k8s:io.kubernetes.pod.namespace: virtual-office
   egress:
     - toEndpoints:
         - matchLabels:
