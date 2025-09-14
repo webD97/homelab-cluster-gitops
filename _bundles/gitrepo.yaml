@@ -53,11 +53,11 @@ spec:
     - smart-home/networkpolicy
 
     - virtual-office/paperless-ngx
+    - virtual-office/paperless-ngx-pg
     - virtual-office/paperless-ngx-extras
     - virtual-office/networkpolicy
 
     - cnpg-system/cnpg
-    - cnpg-system/homelab-db
 
     - multimedia/jellyfin
     - multimedia/jellyfin-extras

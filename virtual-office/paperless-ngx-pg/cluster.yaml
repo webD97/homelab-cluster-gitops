@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: homelab-db
+  name: paperless-ngx-pg
 spec:
   instances: 2
 
