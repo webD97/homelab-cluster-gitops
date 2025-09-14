@@ -6,6 +6,11 @@ spec:
   endpointSelector:
     matchLabels:
       cnpg.io/cluster: paperless-ngx-pg
+  ingress:
+    - fromEndpoints:
+        - matchLabels:
+            app.kubernetes.io/instance: cnpg
+            k8s:io.kubernetes.pod.namespace: cnpg-system
   egress:
     - toEndpoints:
         - matchLabels:
