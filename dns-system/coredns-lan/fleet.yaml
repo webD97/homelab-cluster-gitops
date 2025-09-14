@@ -66,11 +66,9 @@ helm:
           - name: forward
             parameters: fritz.box 192.168.32.1
 
-          # Forward local homelab domain to etcd managed by external-dns
-          - name: etcd
-            parameters: homelab.cloudbending.dev
-            configBlock: |-
-              endpoint http://coredns-etcd:2379
+          # Forward local homelab domain to pihole (managed by external-dns)
+          - name: forward
+            parameters: . 10.43.128.146
 
           # Forward internet to pihole or quad9 as a fallback
           - name: forward
