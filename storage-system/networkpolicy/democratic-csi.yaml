@@ -12,6 +12,8 @@ spec:
         - matchLabels:
             k8s-app: kube-dns
             k8s:io.kubernetes.pod.namespace: kube-system
+    - toEntities:
+        - kube-apiserver
     - toCIDR:
         - 192.168.37.2/32
       toPorts:
