@@ -56,3 +56,6 @@ helm:
         enabled: true
 
     policyAuditMode: "false"
+
+    loadBalancer:
+      acceleration: best-effort
