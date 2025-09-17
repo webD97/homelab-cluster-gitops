@@ -27,7 +27,8 @@ env:
       key: password
 
 image:
-  tag: 2.17.1
+  repository: ghcr.io/paperless-ngx/paperless-ngx
+  tag: 2.18.4
 
 persistence:
   data:
