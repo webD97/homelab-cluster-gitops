@@ -14,6 +14,13 @@ spec:
         - matchLabels:
             k8s-app: kube-dns
             k8s:io.kubernetes.pod.namespace: kube-system
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: ANY
+          rules:
+            dns:
+              - matchPattern: "*"
     - toEndpoints:
         - matchLabels:
             cnpg.io/cluster: paperless-ngx-pg
@@ -22,10 +29,9 @@ spec:
         - matchLabels:
             app.kubernetes.io/instance: homelab-virtual-office-paperless-ngx-valkey
             app.kubernetes.io/name: valkey
-    - toCIDR:
-        - 185.67.36.168/32 # posteo.de
-        - 185.67.36.169/32 # posteo.de
+    - toFQDNs:
+        - matchName: posteo.de
       toPorts:
         - ports:
-            - port: "993"
+            - port: "993" # IMAP-SSL
               protocol: TCP
