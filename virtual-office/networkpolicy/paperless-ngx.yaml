@@ -35,3 +35,14 @@ spec:
         - ports:
             - port: "993" # IMAP-SSL
               protocol: TCP
+    # Update checker
+    - toFQDNs:
+        - matchName: api.github.com
+      toPorts:
+        - ports:
+            - port: "443"
+              protocol: TCP
+          rules:
+            http:
+              - method: GET
+                path: /repos/paperless-ngx/paperless-ngx/releases/latest
