@@ -2,7 +2,7 @@ defaultNamespace: virtual-office
 
 helm:
   chart: oci://registry-1.docker.io/cloudpirates/valkey
-  version: 0.4.0
+  version: 0.5.0
   values:
     persistence:
       size: 1Gi
