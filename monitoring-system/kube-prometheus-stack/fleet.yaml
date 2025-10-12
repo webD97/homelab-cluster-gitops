@@ -8,7 +8,7 @@ dependsOn:
 helm:
   repo: https://prometheus-community.github.io/helm-charts
   chart: kube-prometheus-stack
-  version: 78.1.0
+  version: 78.2.0
   releaseName: kube-prometheus-stack
   values:
     crds:
