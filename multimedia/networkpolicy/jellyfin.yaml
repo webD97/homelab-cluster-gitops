@@ -22,3 +22,4 @@ spec:
         - 104.20.34.121/32 # www.omdbapi.com, img.omdbapi.com
         - 172.66.150.8/32 # www.omdbapi.com, img.omdbapi.com
         - 79.127.216.111/32 # ?
+        - 138.199.36.10/32 # ?
