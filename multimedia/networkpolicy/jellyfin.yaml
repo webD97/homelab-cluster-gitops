@@ -14,12 +14,18 @@ spec:
         - matchLabels:
             k8s-app: kube-dns
             k8s:io.kubernetes.pod.namespace: kube-system
-    - toCIDR:
-        - 108.157.4.76/32 # api.themoviedb.org
-        - 108.157.4.33/32 # api.themoviedb.org
-        - 108.157.4.46/32 # api.themoviedb.org
-        - 108.157.4.51/32 # api.themoviedb.org
-        - 104.20.34.121/32 # www.omdbapi.com, img.omdbapi.com
-        - 172.66.150.8/32 # www.omdbapi.com, img.omdbapi.com
-        - 79.127.216.111/32 # ?
-        - 138.199.36.10/32 # ?
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: ANY
+          rules:
+            dns:
+              - matchPattern: "*"
+    - toFQDNs:
+        - matchName: api.themoviedb.org
+        - matchName: image.tmdb.org
+        - matchName: www.omdbapi.com
+      toPorts:
+        - ports:
+            - port: "443"
+              protocol: TCP
