@@ -7,7 +7,7 @@ overrideTargets:
 helm:
   repo: https://helm.cilium.io/
   chart: cilium
-  version: "1.18.2"
+  version: "1.18.3"
   releaseName: cilium-preflight
   values:
     # todo: use something stable
