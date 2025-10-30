@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: docker.io/pihole/pihole
-  tag: "2025.08.0"
+  tag: "2025.10.3"
 
 virtualHost: pihole.homelab.cloudbending.dev
 
