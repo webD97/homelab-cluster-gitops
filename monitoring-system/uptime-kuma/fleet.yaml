@@ -5,14 +5,5 @@ helm:
   chart: uptime-kuma
   version: 2.22.0
   releaseName: uptime-kuma
-  values:
-    image:
-      repo: docker.io/louislam/uptime-kuma
-      tag: "1.23.16"
-    volume:
-      enabled: true
-      size: 2Gi
-    podEnv:
-      # Allow being displayed in an <iframe>
-      - name: UPTIME_KUMA_DISABLE_FRAME_SAMEORIGIN
-        value: "1"
+  valuesFiles:
+    - values.yaml
