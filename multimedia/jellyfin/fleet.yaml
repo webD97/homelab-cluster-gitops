@@ -5,22 +5,5 @@ helm:
   chart: jellyfin
   version: 2.4.0
   releaseName: jellyfin
-  values:
-    image:
-      repository: docker.io/jellyfin/jellyfin
-      tag: "10.11.0"
-    persistence:
-      media:
-        size: 2560Gi
-    resources:
-      requests:
-        generic.dev/render: 1
-      limits:
-        generic.dev/render: 1
-    volumes:
-      - name: cache
-        persistentVolumeClaim:
-          claimName: jellyfin-cache
-    volumeMounts:
-      - name: cache
-        mountPath: /cache
+  valuesFiles:
+    - values.yaml
