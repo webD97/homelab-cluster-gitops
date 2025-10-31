@@ -1,6 +1,6 @@
 image:
   repository: docker.io/jellyfin/jellyfin
-  tag: "10.11.0"
+  tag: "10.11.1"
 persistence:
   media:
     size: 2560Gi
