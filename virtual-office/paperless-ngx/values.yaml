@@ -28,7 +28,7 @@ env:
 
 image:
   repository: ghcr.io/paperless-ngx/paperless-ngx
-  tag: 2.19.3
+  tag: 2.19.4
 
 persistence:
   data:
