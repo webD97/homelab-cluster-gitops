@@ -3,7 +3,7 @@ defaultNamespace: multimedia
 helm:
   repo: https://jellyfin.github.io/jellyfin-helm
   chart: jellyfin
-  version: 2.5.0
+  version: 2.6.0
   releaseName: jellyfin
   valuesFiles:
     - values.yaml
