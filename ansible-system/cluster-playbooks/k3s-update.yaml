@@ -18,8 +18,8 @@ spec:
   template:
     variables:
       - inline:
-          k3s_version: v1.33.2+k3s1
-          k3s_checksum: sha256:a0b8c48bee8588289d2249c3ce2bc58afb273dc7c13057c9b65e56de74c7ceeb
+          k3s_version: v1.34.2+k3s1
+          k3s_checksum: sha256:15811d34187e03fe29d0e46108c42cc33e62cec1b3d9d80f50944536ebcad40a
     playbook: |
       - hosts: k3s
 
