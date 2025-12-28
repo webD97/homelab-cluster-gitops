@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: gridfinitycreator
-          image: ghcr.io/webd97/gridfinitycreator:47a8a35
+          image: ghcr.io/webd97/gridfinitycreator:5427b44
           ports:
             - containerPort: 5000
               name: http
@@ -29,7 +29,13 @@ spec:
           env:
             - name: "TZ"
               value: "Europe/Berlin"
-          resources: {}
+          resources:
+            requests:
+              memory: 256Mi
+              cpu: 5m
+            limits:
+              memory: 512Mi
+              cpu: 50m
       volumes:
         - name: tmpfiles
           emptydir: {}
