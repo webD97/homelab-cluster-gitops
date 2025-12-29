@@ -8,3 +8,7 @@ podEnv:
   # Allow being displayed in an <iframe>
   - name: UPTIME_KUMA_DISABLE_FRAME_SAMEORIGIN
     value: "1"
+livenessProbe:
+  enabled: false
+readinessProbe:
+  enabled: false
