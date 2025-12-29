@@ -1,9 +1,9 @@
 defaultNamespace: x509-system
 
 helm:
-  repo: https://vadimkim.github.io/cert-manager-webhook-hetzner
+  repo: https://charts.hetzner.cloud
   chart: cert-manager-webhook-hetzner
-  version: 1.4.2
+  version: 0.6.3
   releaseName: cert-manager-webhook-hetzner
   values:
     groupName: acme.cloudbending.dev
@@ -13,6 +13,3 @@ helm:
     certManager:
       namespace: x509-system
       serviceAccountName: cert-manager
-    
-    secretName:
-      - hetzner-webhook
