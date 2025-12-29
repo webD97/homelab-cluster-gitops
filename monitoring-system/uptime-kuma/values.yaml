@@ -1,6 +1,6 @@
 image:
   repo: docker.io/louislam/uptime-kuma
-  tag: "1.23.16"
+  tag: "2.0.2"
 volume:
   enabled: true
   size: 2Gi
