@@ -12,3 +12,8 @@ livenessProbe:
   enabled: false
 readinessProbe:
   enabled: false
+resources:
+  requests:
+    memory: 256Mi
+  limits:
+    memory: 512Mi
