@@ -27,7 +27,6 @@ helm:
       operator:
         clusterPoolIPv4PodCIDRList: 10.42.0.0/16
 
-    # todo: use something stable
     k8sServiceHost: 192.168.38.1
     k8sServicePort: 6443
 
