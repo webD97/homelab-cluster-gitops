@@ -30,6 +30,7 @@ spec:
         - matchName: manifest.intro-skipper.org
         - matchName: cdn.jsdelivr.net
         - matchName: github.com
+        - matchName: release-assets.githubusercontent.com
       toPorts:
         - ports:
             - port: "443"
