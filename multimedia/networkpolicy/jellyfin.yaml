@@ -29,6 +29,7 @@ spec:
         - matchPattern: "*.mirror.jellyfin.org"
         - matchName: manifest.intro-skipper.org
         - matchName: cdn.jsdelivr.net
+        - matchName: github.com
       toPorts:
         - ports:
             - port: "443"
