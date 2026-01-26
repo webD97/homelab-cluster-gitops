@@ -27,6 +27,7 @@ spec:
         - matchName: www.omdbapi.com
         - matchName: repo.jellyfin.org
         - matchPattern: "*.mirror.jellyfin.org"
+        - matchName: manifest.intro-skipper.org
       toPorts:
         - ports:
             - port: "443"
