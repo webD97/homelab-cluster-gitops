@@ -25,6 +25,7 @@ spec:
         - matchName: api.themoviedb.org
         - matchName: image.tmdb.org
         - matchName: www.omdbapi.com
+        - matchName: repo.jellyfin.org
       toPorts:
         - ports:
             - port: "443"
