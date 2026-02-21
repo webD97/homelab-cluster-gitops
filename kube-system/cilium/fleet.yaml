@@ -11,7 +11,7 @@ dependsOn:
 helm:
   repo: https://helm.cilium.io/
   chart: cilium
-  version: "1.18.6"
+  version: "1.19.1"
   releaseName: cilium
   values:
     encryption:
