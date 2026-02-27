@@ -20,7 +20,7 @@ spec:
               cpu: 100m
             limits:
               memory: "256Mi"
-              cpu: 100m
+              cpu: 500m
           ports:
             - containerPort: 445
           env:
