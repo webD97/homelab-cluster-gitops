@@ -7,6 +7,5 @@ spec:
     matchLabels:
       app.kubernetes.io/name: paperless-ngx-consume-smb
   ingress:
-    - fromCIDR:
-        - 192.168.32.0/20
-  egress: []
+    - fromEntities:
+        - world
