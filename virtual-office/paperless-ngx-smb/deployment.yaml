@@ -28,6 +28,5 @@ spec:
               value: "PaperlessNGX"
       volumes:
         - name: storage
-          emptyDir:
-            medium: Memory
-            sizeLimit: 200Mi
+          persistentVolumeClaim:
+            claimName: homelab-virtual-office-paperless-ngx-consume
