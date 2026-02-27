@@ -1,0 +1,12 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: paperless-ngx-smb
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/name: paperless-ngx-consume-smb
+  ingress:
+    - fromCIDR:
+        - 192.168.32.0/20
+  egress: []
