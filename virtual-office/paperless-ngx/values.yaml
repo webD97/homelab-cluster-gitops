@@ -5,6 +5,8 @@ env:
   # Required in order to import signed documents
   PAPERLESS_OCR_USER_ARGS: '{"invalidate_digital_signatures": true}'
   PAPERLESS_FILENAME_FORMAT: '{{ "{{" }} correspondent {{ "}}" }}/{{ "{{" }} created_year {{ "}}" }}-{{ "{{" }} created_month {{ "}}" }}/{{ "{{" }} title {{ "}}" }}'
+  PAPERLESS_CONSUMER_RECURSIVE: "true"
+  PAPERLESS_CONSUMER_SUBDIRS_AS_TAGS: "true"
   PAPERLESS_DBHOST:
     secretKeyRef:
       name: paperless-ngx-pg-app
