@@ -14,6 +14,6 @@ spec:
             groupName: acme.cloudbending.dev
             solverName: hetzner
             config:
-              secretName: hetzner-webhook
-              zoneName: cloudbending.dev
-              apiUrl: https://dns.hetzner.com/api/v1
+              tokenSecretKeyRef:
+                name: hetzner
+                key: token
