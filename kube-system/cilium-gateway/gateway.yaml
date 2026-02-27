@@ -35,3 +35,17 @@ spec:
           selector:
             matchLabels:
               kubernetes.io/metadata.name: smart-home
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: paperless-ngx-smb-gateway
+spec:
+  gatewayClassName: cilium
+  listeners:
+    - name: smb
+      protocol: TCP
+      port: 445
+      allowedRoutes:
+        kinds:
+          - kind: TCPRoute

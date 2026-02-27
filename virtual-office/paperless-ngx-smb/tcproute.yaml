@@ -1,0 +1,12 @@
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: TCPRoute
+metadata:
+  name: paperless-ngx-consume-smb
+spec:
+  parentRefs:
+    - name: paperless-ngx-smb-gateway
+      sectionName: smb
+  rules:
+    - backendRefs:
+        - name: paperless-ngx-smb-gateway
+          port: 445

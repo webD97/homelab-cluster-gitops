@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: paperless-ngx-consume-smb
+spec:
+  selector:
+    app.kubernetes.io/name: paperless-ngx-consume-smb
+  ports:
+    - port: 445
+      targetPort: 445

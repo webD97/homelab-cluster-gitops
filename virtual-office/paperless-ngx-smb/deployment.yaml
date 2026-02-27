@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paperless-ngx-consume-smb
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: paperless-ngx-consume-smb
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: paperless-ngx-consume-smb
+    spec:
+      containers:
+        - name: samba
+          image: docker.io/dockurr/samba:4.23.5
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: 100m
+            limits:
+              memory: "256Mi"
+              cpu: 100m
+          ports:
+            - containerPort: 445
+          env:
+            - name: NAME
+              value: "PaperlessNGX"
+      volumes:
+        - name: storage
+          emptyDir:
+            medium: Memory
+            sizeLimit: 200Mi
