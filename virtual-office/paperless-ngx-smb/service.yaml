@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: paperless-ngx-consume-smb
 spec:
+  type: LoadBalancer
   selector:
     app.kubernetes.io/name: paperless-ngx-consume-smb
   ports:
