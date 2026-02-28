@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: paperless-ngx-backup
 spec:
-  schedule: "45 23 * * *"
+  schedule: "00 21 * * *"
   jobTemplate:
     spec:
       template:
