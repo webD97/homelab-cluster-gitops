@@ -8,7 +8,7 @@ kind: Role
 metadata:
   name: paperless-ngx-backup-command-runner
 rules:
-  - apiGroups: ["apps/v1"]
+  - apiGroups: ["apps"]
     resources: ["deployments"]
     verbs: ["get", "list"]
   - apiGroups: [""]
