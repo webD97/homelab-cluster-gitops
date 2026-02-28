@@ -6,6 +6,7 @@ spec:
   schedule: "00 21 * * *"
   jobTemplate:
     spec:
+      ttlSecondsAfterFinished: 86400
       template:
         metadata:
           labels:
@@ -13,7 +14,6 @@ spec:
         spec:
           serviceAccountName: paperless-ngx-backup
           restartPolicy: OnFailure
-          ttlSecondsAfterFinished: 86400
           containers:
             - name: backup
               image: docker.io/rancher/kubectl:v1.34.5
