@@ -57,6 +57,7 @@ spec:
     - virtual-office/paperless-ngx-valkey
     - virtual-office/paperless-ngx-smb
     - virtual-office/paperless-ngx-extras
+    - virtual-office/paperless-ngx-backup
     - virtual-office/networkpolicy
 
     - cnpg-system/cnpg

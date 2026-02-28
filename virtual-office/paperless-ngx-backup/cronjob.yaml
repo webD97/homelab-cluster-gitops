@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: paperless-ngx-backup
+spec:
+  schedule: "45 23 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: paperless-ngx-backup
+          restartPolicy: OnFailure
+          containers:
+            - name: backup
+              image: docker.io/rancher/kubectl:v1.34.5
+              command:
+                - kubectl
+              args:
+                - auth
+                - whoami
