@@ -13,11 +13,22 @@ spec:
         spec:
           serviceAccountName: paperless-ngx-backup
           restartPolicy: OnFailure
+          ttlSecondsAfterFinished: 86400
           containers:
             - name: backup
               image: docker.io/rancher/kubectl:v1.34.5
               command:
                 - kubectl
               args:
-                - auth
-                - whoami
+                - exec
+                - deployment/homelab-virtual-office-paperless-ngx
+                - --
+                - >
+                  document_exporter
+                  --zip
+                  --split-manifest
+                  --no-thumbnail
+                  --use-folder-prefix
+                  --use-filename-format
+                  --no-progress-bar
+                  ../export
