@@ -45,7 +45,7 @@ persistence:
   export:
     enabled: true
     accessMode: ReadWriteOnce
-    size: 1Gi
+    size: 5Gi
   consume:
     enabled: true
     accessMode: ReadWriteOnce
