@@ -1,9 +1,5 @@
 defaultNamespace: kube-system
 
-overrideTargets:
-  - matchLabels:
-      x-cilium-preflight: enabled
-
 helm:
   repo: https://helm.cilium.io/
   chart: cilium
@@ -23,3 +19,11 @@ helm:
 
     operator:
       enabled: false
+
+targetCustomizations:
+  - name: disable-when-unlabeled
+    doNotDeploy: true
+    clusterSelector:
+      matchExpressions:
+        - key: "x-cilium-preflight"
+          operator: DoesNotExist
