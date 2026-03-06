@@ -23,11 +23,15 @@ spec:
                 - exec
                 - deployment/homelab-virtual-office-paperless-ngx
                 - --
-                - document_exporter
-                - --zip
-                - --split-manifest
-                - --no-thumbnail
-                - --use-folder-prefix
-                - --use-filename-format
-                - --no-progress-bar
-                - ../export
+                - /bin/bash
+                - -c
+                - |
+                  rm /usr/src/paperless/export/*.zip;
+                  document_exporter \
+                    --zip \
+                    --split-manifest \
+                    --no-thumbnail \
+                    --use-folder-prefix \
+                    --use-filename-format \
+                    --no-progress-bar \
+                    ../export;
