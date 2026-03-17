@@ -48,7 +48,7 @@ persistence:
     size: 5Gi
   consume:
     enabled: true
-    accessMode: ReadWriteOnce
+    accessMode: ReadWriteMany
     size: 1Gi
 
 postgresql:
