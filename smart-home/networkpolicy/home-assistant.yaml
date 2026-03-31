@@ -66,13 +66,6 @@ spec:
         - ports:
             - port: "443"
               protocol: TCP
-    # Let's get a bit more specific
-    - toFQDNs:
-        - matchName: api.waqi.info
-      toPorts:
-        - ports:
-            - port: "443"
-              protocol: TCP
   ingress:
     - fromEntities:
         - ingress
