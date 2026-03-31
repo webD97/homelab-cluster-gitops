@@ -38,6 +38,6 @@ spec:
               cpu: 1000m
       volumes:
         - name: tmpfiles
-          emptydir: {}
+          emptyDir: {}
         - name: logs
-          emptydir: {}
+          emptyDir: {}
