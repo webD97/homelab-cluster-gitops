@@ -13,3 +13,5 @@ resources:
     memory: 256Mi
   limits:
     memory: 512Mi
+strategy:
+  type: Recreate
