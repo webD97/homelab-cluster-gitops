@@ -5,6 +5,9 @@ image:
 persistence:
   media:
     size: 2560Gi
+  cache:
+    type: pvc
+    size: 10Gi
 
 resources:
   requests:
@@ -12,14 +15,13 @@ resources:
   limits:
     generic.dev/render: 1
 
-volumes:
-  - name: cache
-    persistentVolumeClaim:
-      claimName: jellyfin-cache
-
-volumeMounts:
-  - name: cache
-    mountPath: /cache
-
 deploymentStrategy:
   type: Recreate
+
+httpRoute:
+  enabled: true
+  parentRefs:
+    - name: default-gateway
+      namespace: kube-system
+  hostnames:
+    - "jellyfin.homelab.cloudbending.dev"
