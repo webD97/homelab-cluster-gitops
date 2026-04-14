@@ -10,8 +10,8 @@ spec:
       - key: kubernetes.io/hostname
         operator: In
         values:
-        - homelab-worker-1
+          - homelab-worker-0
   interfaces:
-  - ^enp+
+    - ^en[sp]
   externalIPs: false
   loadBalancerIPs: true
