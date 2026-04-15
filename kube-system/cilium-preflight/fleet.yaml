@@ -3,7 +3,7 @@ defaultNamespace: kube-system
 helm:
   repo: https://helm.cilium.io/
   chart: cilium
-  version: "1.19.2"
+  version: "1.19.3"
   releaseName: cilium-preflight
   values:
     k8sServiceHost: 192.168.38.1
