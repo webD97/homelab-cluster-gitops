@@ -7,10 +7,6 @@ spec:
     matchExpressions:
       - key: node-role.kubernetes.io/control-plane
         operator: DoesNotExist
-      - key: kubernetes.io/hostname
-        operator: In
-        values:
-          - homelab-worker-0
   interfaces:
     - ^en[sp]
   externalIPs: false
