@@ -26,6 +26,8 @@ spec:
           volumeMounts:
             - mountPath: /octoprint
               name: data
+            - mountPath: /opt/scripts
+              name: scripts
           env:
             - name: "ENABLE_MJPG_STREAMER"
               value: "false"
@@ -34,9 +36,15 @@ spec:
             - name: "OCTOPRINT_PORT"
               value: "80"
           resources:
+            requests:
+              memory: 256Mi
+              cpu: 50m
             limits:
               generic.dev/tty-anycubic: 1
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: octoprint
+        - name: scripts
+          configMap:
+            name: octoprint-pdb-scripts

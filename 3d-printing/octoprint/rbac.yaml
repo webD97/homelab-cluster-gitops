@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: octoprint
+  namespace: 3d-printing
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: octoprint-pdb-manager
+  namespace: 3d-printing
+rules:
+  - apiGroups:
+      - policy
+    resources:
+      - poddisruptionbudgets
+    verbs:
+      - create
+      - delete
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: octoprint-rolebinding
+  namespace: 3d-printing
+subjects:
+  - kind: ServiceAccount
+    name: octoprint
+    namespace: 3d-printing
+roleRef:
+  kind: Role
+  name: octoprint-pdb-manager
+  apiGroup: rbac.authorization.k8s.io
