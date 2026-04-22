@@ -44,10 +44,10 @@ data:
     set -euo pipefail
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     source "$SCRIPT_DIR/functions.sh"
-    k8s_apply "/apis/apps/v1/namespaces/$NAMESPACE/poddisruptionbudgets/octoprint-while-connected" "$SCRIPT_DIR/pdb.yaml"
+    k8s_apply "/apis/policy/v1/namespaces/$NAMESPACE/poddisruptionbudgets/octoprint-while-connected" "$SCRIPT_DIR/pdb.yaml"
   on_printer_disconnected.sh: |
     #!/bin/bash
     set -euo pipefail
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     source "$SCRIPT_DIR/functions.sh"
-    k8s_delete "/apis/apps/v1/namespaces/$NAMESPACE/poddisruptionbudgets/octoprint-while-connected"
+    k8s_delete "/apis/policy/v1/namespaces/$NAMESPACE/poddisruptionbudgets/octoprint-while-connected"
