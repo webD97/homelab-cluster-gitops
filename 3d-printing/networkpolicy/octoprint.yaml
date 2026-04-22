@@ -4,6 +4,9 @@ metadata:
   name: octoprint
 spec:
   egress:
+    # For PodDisruptionBudget management
+    - toEntities:
+        - kube-apiserver
     - toEndpoints:
         - matchLabels:
             k8s-app: kube-dns

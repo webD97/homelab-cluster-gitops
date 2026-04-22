@@ -16,6 +16,7 @@ spec:
         app.kubernetes.io/instance: octoprint
         app.kubernetes.io/name: octoprint
     spec:
+      serviceAccountName: octoprint
       containers:
         - name: octoprint
           image: octoprint/octoprint:1.11.7
