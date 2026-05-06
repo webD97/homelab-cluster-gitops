@@ -27,8 +27,6 @@ spec:
           volumeMounts:
             - mountPath: /octoprint
               name: data
-            - mountPath: /opt/scripts
-              name: scripts
           env:
             - name: "ENABLE_MJPG_STREAMER"
               value: "false"
@@ -46,6 +44,3 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: octoprint
-        - name: scripts
-          configMap:
-            name: octoprint-pdb-scripts
