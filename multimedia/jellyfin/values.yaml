@@ -6,6 +6,7 @@ persistence:
   media:
     size: 2560Gi
   cache:
+    enabled: true
     type: pvc
     size: 10Gi
 
