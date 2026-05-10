@@ -25,7 +25,7 @@ spec:
       secretRef:
         name: ccu-ssh
   inventoryRefs:
-    - staticInventory: ccu
+    - staticInventory: ccu-certificate-export
   template:
     files:
       - name: homematic-ccu-cert
