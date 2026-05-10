@@ -1,4 +1,15 @@
 apiVersion: ansible.cloudbending.dev/v1beta1
+kind: StaticInventory
+metadata:
+  name: ccu-certificate-export
+  namespace: x509-system
+spec:
+  hosts:
+    - name: ccu
+      hosts:
+        - ccu.fritz.box
+---
+apiVersion: ansible.cloudbending.dev/v1beta1
 kind: PlaybookPlan
 metadata:
   name: ccu-certificate-export
@@ -13,11 +24,8 @@ spec:
       user: root
       secretRef:
         name: ccu-ssh
-  inventory:
-    - name: ccu
-      hosts:
-        fromList:
-          - ccu.fritz.box
+  inventoryRefs:
+    - staticInventory: ccu
   template:
     files:
       - name: homematic-ccu-cert
