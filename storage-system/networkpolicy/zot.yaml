@@ -1,0 +1,17 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: zot
+spec:
+  endpointSelector:
+    matchLabels:
+      app.kubernetes.io/instance: zot
+      app.kubernetes.io/name: zot
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            k8s-app: kube-dns
+            k8s:io.kubernetes.pod.namespace: kube-system
+  ingress:
+    - fromEntities:
+        - ingress
