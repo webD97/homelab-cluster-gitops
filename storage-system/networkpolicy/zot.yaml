@@ -21,7 +21,7 @@ spec:
               - matchPattern: "*"
     - toFQDNs:
         - matchName: "ghcr.io"
-        - matchName: "pkg-containers.githubusercontent.com "
+        - matchName: "pkg-containers.githubusercontent.com"
       toPorts:
         - ports:
             - port: "443"
