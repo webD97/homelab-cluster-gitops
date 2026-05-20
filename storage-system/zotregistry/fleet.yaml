@@ -6,7 +6,7 @@ helm:
   version: 0.1.115
   releaseName: zot
   values:
-    httpRoute:
+    httproute:
       enabled: true
       hostnames: [registry.homelab.cloudbending.dev]
       parentRefs:
