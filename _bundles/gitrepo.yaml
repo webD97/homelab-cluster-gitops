@@ -25,6 +25,7 @@ spec:
     - storage-system/democratic-csi-config
     - storage-system/democratic-csi
     - storage-system/networkpolicy
+    - storage-system/zotregistry
 
     - monitoring-system/kube-prometheus-stack
     - monitoring-system/uptime-kuma

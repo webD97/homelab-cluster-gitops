@@ -1,0 +1,17 @@
+defaultNamespace: storage-system
+
+helm:
+  repo: https://zotregistry.dev/helm-charts
+  chart: zot
+  version: 0.1.115
+  releaseName: zot
+  values:
+    httpRoute:
+      enabled: true
+      hostnames: [registry.homelab.cloudbending.dev]
+      parentRefs:
+        - name: default-gateway
+          namespace: kube-system
+    pvc:
+      create: true
+      storage: 50Gi
