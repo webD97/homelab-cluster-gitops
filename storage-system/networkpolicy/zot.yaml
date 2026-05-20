@@ -12,6 +12,12 @@ spec:
         - matchLabels:
             k8s-app: kube-dns
             k8s:io.kubernetes.pod.namespace: kube-system
+    - toFQDNs:
+        - matchName: "ghcr.io"
+      toPorts:
+        - ports:
+            - port: "443"
+              protocol: TCP
   ingress:
     - fromEntities:
         - ingress
