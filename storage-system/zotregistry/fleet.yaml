@@ -12,6 +12,7 @@ helm:
       parentRefs:
         - name: default-gateway
           namespace: kube-system
+    persistence: true
     pvc:
       create: true
       storage: 50Gi
