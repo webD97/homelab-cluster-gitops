@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app.kubernetes.io/instance: octoprint
       app.kubernetes.io/name: octoprint
-  replicas: 1
+  replicas: 0
   strategy:
     type: Recreate
   template:
