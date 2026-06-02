@@ -28,6 +28,7 @@ spec:
         - 192.168.35.3/32 # Kitchen RGB strip
         - 192.168.36.1/32 # Denon AVR
         - 192.168.36.2/32 # LG TV
+        - 192.168.35.4/32 # Prusa Core One+
     # Multicast DNS
     - toCIDR:
         - 224.0.0.251/32
