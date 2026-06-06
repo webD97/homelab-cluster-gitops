@@ -1,6 +1,6 @@
 image:
   repository: docker.io/jellyfin/jellyfin
-  tag: "10.11.10"
+  tag: "10.11.11"
 
 persistence:
   media:
