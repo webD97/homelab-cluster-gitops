@@ -6,3 +6,22 @@ helm:
   version: 0.28.2
   releaseName: cnpg
   values: {}
+
+diff:
+  comparePatches:
+    # cnpg's admission webhook `webhooks` entries are managed entirely outside the chart
+    # manifest: the operator injects clientConfig.caBundle, and the apiserver defaults
+    # matchPolicy, reinvocationPolicy, namespaceSelector, objectSelector,
+    # clientConfig.service.port and rules[].scope. Because `webhooks` is a JSON array,
+    # Fleet diffs it atomically, so any of those keeps the bundle perpetually "Modified".
+    # Stripping individual fields can't help — drop the whole array from drift detection.
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: MutatingWebhookConfiguration
+      name: cnpg-mutating-webhook-configuration
+      operations:
+        - { "op": "remove", "path": "/webhooks" }
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      name: cnpg-validating-webhook-configuration
+      operations:
+        - { "op": "remove", "path": "/webhooks" }
