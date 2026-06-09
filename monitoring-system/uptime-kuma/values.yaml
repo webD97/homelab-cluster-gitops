@@ -15,3 +15,16 @@ resources:
     memory: 512Mi
 strategy:
   type: Recreate
+# Restarts are probe timeouts, not crashes/OOM: the SQLite DB (data/kuma.db) has bloated to
+# 543MB that is ~98% free pages (auto_vacuum off, never VACUUMed) for only ~14 monitors.
+# Its single connection intermittently stalls (KnexTimeoutError in data/error.log), blocking
+# the Node event loop so the readiness (1s httpGet) and liveness (2s exec) probes time out
+# together and the kubelet kills an otherwise-fine pod (HTTP answers in ~15ms). Relaxing the
+# probes stops the pointless restart loop; the durable fix is shrinking/VACUUMing the DB
+# (Settings -> Monitor History -> Shrink Database) and moving it off NFS.
+livenessProbe:
+  timeoutSeconds: 10
+  periodSeconds: 20
+  failureThreshold: 5
+readinessProbe:
+  timeoutSeconds: 5
