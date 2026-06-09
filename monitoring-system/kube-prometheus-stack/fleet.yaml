@@ -64,19 +64,20 @@ helm:
 
 diff:
   comparePatches:
+    # The admission webhooks' `webhooks` entries are managed entirely outside the chart
+    # manifest: kube-webhook-certgen injects clientConfig.caBundle, and the apiserver
+    # defaults matchPolicy, reinvocationPolicy, namespaceSelector, objectSelector,
+    # clientConfig.service.port and rules[].scope. Because `webhooks` is a JSON array,
+    # Fleet diffs it atomically, so any of those keeps the bundle perpetually "Modified".
+    # Stripping individual fields (e.g. just caBundle) can't help — drop the whole array
+    # from drift detection.
     - apiVersion: admissionregistration.k8s.io/v1
       kind: MutatingWebhookConfiguration
       name: kube-prometheus-stack-admission
       operations:
-        - { "op": "remove", "path": "/webhooks/0/clientConfig/caBundle" }
-      jsonPointers:
-        - "/webhooks/0/clientConfig/caBundle"
+        - { "op": "remove", "path": "/webhooks" }
     - apiVersion: admissionregistration.k8s.io/v1
       kind: ValidatingWebhookConfiguration
       name: kube-prometheus-stack-admission
       operations:
-        - { "op": "remove", "path": "/webhooks/0/clientConfig/caBundle" }
-        - { "op": "remove", "path": "/webhooks/1/clientConfig/caBundle" }
-      jsonPointers:
-        - "/webhooks/0/clientConfig/caBundle"
-        - "/webhooks/1/clientConfig/caBundle"
+        - { "op": "remove", "path": "/webhooks" }
