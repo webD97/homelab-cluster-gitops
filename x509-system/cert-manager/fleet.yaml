@@ -19,3 +19,23 @@ helm:
     #crds:
     #  enabled: true
     #  keep: true
+
+diff:
+  comparePatches:
+    # cert-manager's admission webhook `webhooks` entries are managed entirely outside
+    # the chart manifest: cainjector injects clientConfig.caBundle, and the apiserver
+    # defaults matchPolicy, reinvocationPolicy, namespaceSelector, objectSelector,
+    # clientConfig.service.port and rules[].scope. Because `webhooks` is a JSON array,
+    # Fleet diffs it atomically, so any of those keeps the bundle perpetually "Modified"
+    # (which here also blocks dependents like cilium-gateway via dependsOn). Stripping
+    # individual fields can't help — drop the whole array from drift detection.
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: MutatingWebhookConfiguration
+      name: cert-manager-webhook
+      operations:
+        - { "op": "remove", "path": "/webhooks" }
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      name: cert-manager-webhook
+      operations:
+        - { "op": "remove", "path": "/webhooks" }
