@@ -76,5 +76,7 @@ diff:
       name: kube-prometheus-stack-admission
       operations:
         - { "op": "remove", "path": "/webhooks/0/clientConfig/caBundle" }
+        - { "op": "remove", "path": "/webhooks/1/clientConfig/caBundle" }
       jsonPointers:
         - "/webhooks/0/clientConfig/caBundle"
+        - "/webhooks/1/clientConfig/caBundle"
