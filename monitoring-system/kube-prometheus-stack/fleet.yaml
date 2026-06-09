@@ -61,3 +61,20 @@ helm:
             - backendRefs:
                 - name: kube-prometheus-stack-grafana
                   port: 80
+
+diff:
+  comparePatches:
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: MutatingWebhookConfiguration
+      name: kube-prometheus-stack-admission
+      operations:
+        - { "op": "remove", "path": "/webhooks/0/clientConfig/caBundle" }
+      jsonPointers:
+        - "/webhooks/0/clientConfig/caBundle"
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      name: kube-prometheus-stack-admission
+      operations:
+        - { "op": "remove", "path": "/webhooks/0/clientConfig/caBundle" }
+      jsonPointers:
+        - "/webhooks/0/clientConfig/caBundle"
