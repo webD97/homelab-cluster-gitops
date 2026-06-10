@@ -3,7 +3,7 @@ defaultNamespace: cnpg-system
 helm:
   repo: https://cloudnative-pg.github.io/charts
   chart: cloudnative-pg
-  version: 0.28.2
+  version: 0.28.3
   releaseName: cnpg
   values: {}
 
