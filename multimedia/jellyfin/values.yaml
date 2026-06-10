@@ -19,6 +19,17 @@ resources:
 deploymentStrategy:
   type: Recreate
 
+# The chart's default liveness/readiness probes hit /health with a 1s timeout. Jellyfin's
+# .NET thread pool intermittently overshoots that during library scans / image extraction /
+# GC pauses, so the kubelet kills an otherwise-healthy server (~52 restarts/13h, all liveness
+# timeouts; /health normally answers in ~5ms, mem ~140MB, no OOM). Give the probes headroom.
+livenessProbe:
+  timeoutSeconds: 10
+  periodSeconds: 20
+  failureThreshold: 5
+readinessProbe:
+  timeoutSeconds: 5
+
 httpRoute:
   enabled: true
   parentRefs:
