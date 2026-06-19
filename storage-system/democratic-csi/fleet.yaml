@@ -14,10 +14,18 @@ helm:
       existingConfigSecret: driver-config
       config:
         driver: freenas-api-nfs
+    controller:
+      driver:
+        image:
+          registry: ghcr.io/democratic-csi/democratic-csi
+          tag: v1.9.5
     node:
       driver:
         # Important on Fedora CoreOS: https://github.com/democratic-csi/democratic-csi/issues/343
         localtimeHostPath: null
+        image:
+          registry: ghcr.io/democratic-csi/democratic-csi
+          tag: v1.9.5
     storageClasses:
       - name: nfs-csi
         defaultClass: true
