@@ -3,7 +3,7 @@ defaultNamespace: dns-system
 helm:
   repo: https://mojo2600.github.io/pihole-kubernetes/
   chart: pihole
-  version: "2.36.0"
+  version: "2.37.0"
   releaseName: pihole
   valuesFiles:
     - values.yaml
