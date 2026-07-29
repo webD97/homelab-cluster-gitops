@@ -28,6 +28,10 @@ env:
     secretKeyRef:
       name: homelab-virtual-office-paperless-ngx-valkey
       key: password
+  PAPERLESS_SECRET_KEY:
+    secretKeyRef:
+      name: homelab-virtual-office-paperless-ngx-secret
+      key: secret-key
 
 image:
   repository: ghcr.io/paperless-ngx/paperless-ngx
