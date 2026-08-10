@@ -16,7 +16,9 @@ helm:
         enabled: true
     prometheus:
       prometheusSpec:
-        retention: 30d
+        scrapeInterval: 60s
+        evaluationInterval: 60s
+        retention: 60d
         storageSpec:
           volumeClaimTemplate:
             spec:
@@ -24,7 +26,7 @@ helm:
                 - ReadWriteOnce
               resources:
                 requests:
-                  storage: 20Gi
+                  storage: 32Gi
     prometheus-node-exporter:
       tolerations:
         - effect: NoSchedule
