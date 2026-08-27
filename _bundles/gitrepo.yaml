@@ -35,6 +35,7 @@ spec:
     - dns-system/external-dns
     - dns-system/external-dns-extras
     - dns-system/coredns-lan
+    - dns-system/homedns
 
     - x509-system/cert-manager
     - x509-system/cert-manager-hetzner-webhook

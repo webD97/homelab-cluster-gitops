@@ -1,0 +1,18 @@
+defaultNamespace: dns-system
+
+helm:
+  chart: oci://ghcr.io/webd97/charts/homedns
+  version: 0.1.4
+  values:
+    blocklist:
+      urls:
+        - https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/comprehensive.txt
+      bootstrapDNS:
+        - 9.9.9.9
+        - 149.112.112.112
+    gatewayAPI:
+      zones: [home.cloudbending.dev]
+      resources: [HTTPRoute]
+    upstream:
+      servers: [tls://9.9.9.11, tls://149.112.112.11]
+      tlsServername: dns11.quad9.net
