@@ -15,9 +15,16 @@ helm:
       upgradeJob:
         enabled: true
     grafana:
+      persistence:
+        enabled: true
+        size: 5Gi
+      # SQLite must never be written by two pods at once, so no rolling overlap.
+      deploymentStrategy:
+        type: Recreate
       grafana.ini:
         server:
           domain: grafana.homelab.cloudbending.dev
+          root_url: https://grafana.homelab.cloudbending.dev/
         security:
           allow_embedding: true
     prometheus:
