@@ -16,6 +16,13 @@ helm:
     upstream:
       servers: [tls://9.9.9.11, tls://149.112.112.11]
       tlsServername: dns11.quad9.net
+    # Cluster, not the chart's default of Local: with maxSurge 0 a rollout drains the
+    # announcing node's pod, and under Local that node has no local backend left, so
+    # the LB IP blackholes until the replacement is Ready. Cluster lets any announcing
+    # node forward to the healthy replica. The cost is client source IPs (SNAT), which
+    # nothing here reads -- per-query logging is off.
+    service:
+      externalTrafficPolicy: Cluster
     metrics:
       serviceMonitor:
         enabled: true
@@ -29,11 +36,11 @@ helm:
       rollingUpdate:
         maxUnavailable: 1
         maxSurge: 0
-    # Worker nodes only, and deliberately so: the Service is externalTrafficPolicy:
-    # Local (chart default) and the CiliumL2AnnouncementPolicy announces the LB IP
-    # only from non-control-plane nodes. Announcing nodes must therefore be exactly
-    # the nodes that can host pods. No toleration is set, so the control plane taint
-    # enforces this too; the affinity makes the intent explicit.
+    # Worker nodes only. No toleration is set, so the control plane taint already
+    # enforces this; the affinity makes the intent explicit and keeps the pods on the
+    # same nodes the CiliumL2AnnouncementPolicy announces from. Under Cluster that
+    # alignment is no longer load-bearing, but it still saves an extra hop. The
+    # anti-affinity spreads the two replicas so one node loss cannot take out both.
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
