@@ -16,3 +16,25 @@ helm:
     upstream:
       servers: [tls://9.9.9.11, tls://149.112.112.11]
       tlsServername: dns11.quad9.net
+    metrics:
+      serviceMonitor:
+        enabled: true
+    replicaCount: 2
+    tolerations:
+      - key: node-role.kubernetes.io/control-plane
+        effect: NoSchedule
+        operator: Exists
+    affinity:
+      nodeAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            preference:
+              matchExpressions:
+                - key: node-role.kubernetes.io/control-plane
+                  operator: DoesNotExist
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          - topologyKey: kubernetes.io/hostname
+            labelSelector:
+              matchLabels:
+                app.kubernetes.io/name: homedns
