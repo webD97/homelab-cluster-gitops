@@ -19,6 +19,8 @@ helm:
     metrics:
       serviceMonitor:
         enabled: true
+        labels:
+          release: kube-prometheus-stack
     replicaCount: 2
     # Worker nodes only, and deliberately so: the Service is externalTrafficPolicy:
     # Local (chart default) and the CiliumL2AnnouncementPolicy announces the LB IP
