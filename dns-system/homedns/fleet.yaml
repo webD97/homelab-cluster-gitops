@@ -11,7 +11,7 @@ helm:
         - 9.9.9.9
         - 149.112.112.112
     gatewayAPI:
-      zones: [home.cloudbending.dev]
+      zones: [homelab.cloudbending.dev]
       resources: [HTTPRoute]
     upstream:
       servers: [tls://9.9.9.11, tls://149.112.112.11]
