@@ -14,6 +14,12 @@ helm:
     crds:
       upgradeJob:
         enabled: true
+    grafana:
+      grafana.ini:
+        server:
+          domain: grafana.homelab.cloudbending.dev
+        security:
+          allow_embedding: true
     prometheus:
       prometheusSpec:
         scrapeInterval: 60s
