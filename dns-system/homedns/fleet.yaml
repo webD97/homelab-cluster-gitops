@@ -20,16 +20,16 @@ helm:
       serviceMonitor:
         enabled: true
     replicaCount: 2
-    tolerations:
-      - key: node-role.kubernetes.io/control-plane
-        effect: NoSchedule
-        operator: Exists
+    # Worker nodes only, and deliberately so: the Service is externalTrafficPolicy:
+    # Local (chart default) and the CiliumL2AnnouncementPolicy announces the LB IP
+    # only from non-control-plane nodes. Announcing nodes must therefore be exactly
+    # the nodes that can host pods. No toleration is set, so the control plane taint
+    # enforces this too; the affinity makes the intent explicit.
     affinity:
       nodeAffinity:
-        preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            preference:
-              matchExpressions:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+            - matchExpressions:
                 - key: node-role.kubernetes.io/control-plane
                   operator: DoesNotExist
       podAntiAffinity:
