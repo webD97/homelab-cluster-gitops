@@ -2,7 +2,7 @@ defaultNamespace: dns-system
 
 helm:
   chart: oci://ghcr.io/webd97/charts/homedns
-  version: 0.2.0
+  version: 0.3.0
   values:
     blocklist:
       urls:
@@ -18,6 +18,8 @@ helm:
       tlsServername: dns11.quad9.net
     cache:
       ttl: 900
+    peerCache:
+      enabled: true
     resources:
       requests:
         cpu: 100m
