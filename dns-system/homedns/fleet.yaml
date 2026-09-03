@@ -2,7 +2,7 @@ defaultNamespace: dns-system
 
 helm:
   chart: oci://ghcr.io/webd97/charts/homedns
-  version: 0.3.0
+  version: 0.4.0
   values:
     blocklist:
       urls:
@@ -20,6 +20,9 @@ helm:
       ttl: 900
     peerCache:
       enabled: true
+    race:
+      enabled: true
+      expire: 300s
     resources:
       requests:
         cpu: 100m
