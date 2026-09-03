@@ -2,7 +2,7 @@ defaultNamespace: dns-system
 
 helm:
   chart: oci://ghcr.io/webd97/charts/homedns
-  version: 0.4.0
+  version: 0.4.1
   values:
     blocklist:
       urls:
@@ -22,7 +22,6 @@ helm:
       enabled: true
     race:
       enabled: true
-      expire: 300s
     resources:
       requests:
         cpu: 100m
