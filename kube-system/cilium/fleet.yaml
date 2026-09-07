@@ -50,9 +50,9 @@ helm:
 
     hubble:
       relay:
-        enabled: false
+        enabled: true
       ui:
-        enabled: false
+        enabled: true
 
     policyAuditMode: "false"
 
