@@ -24,7 +24,11 @@ helm:
       enabled: true
     resources:
       requests:
-        cpu: 100m
+        cpu: 50m
+        memory: 256Mi
+      limits:
+        cpu: 50m
+        memory: 256Mi
     # Cluster, not the chart's default of Local: with maxSurge 0 a rollout drains the
     # announcing node's pod, and under Local that node has no local backend left, so
     # the LB IP blackholes until the replacement is Ready. Cluster lets any announcing
