@@ -8,7 +8,7 @@ helm:
   values:
     isClusterService: false
 
-    replicaCount: 2
+    replicaCount: 0
 
     serviceType: LoadBalancer
     service:
