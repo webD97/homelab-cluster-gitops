@@ -53,6 +53,10 @@ helm:
         enabled: true
       ui:
         enabled: true
+      tls:
+        auto:
+          method: cronJob
+          schedule: "0 3 * * 0"
 
     policyAuditMode: "false"
 
