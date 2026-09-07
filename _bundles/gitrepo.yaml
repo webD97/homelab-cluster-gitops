@@ -31,10 +31,10 @@ spec:
     - monitoring-system/uptime-kuma
     - monitoring-system/uptime-kuma-extras
 
-    - dns-system/pihole
-    - dns-system/external-dns
-    - dns-system/external-dns-extras
-    - dns-system/coredns-lan
+    # - dns-system/pihole
+    # - dns-system/external-dns
+    # - dns-system/external-dns-extras
+    # - dns-system/coredns-lan
     - dns-system/homedns
 
     - x509-system/cert-manager
