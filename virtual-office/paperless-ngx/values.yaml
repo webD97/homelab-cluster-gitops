@@ -35,7 +35,7 @@ env:
 
 image:
   repository: ghcr.io/paperless-ngx/paperless-ngx
-  tag: 3.3.4
+  tag: 3.4.0
 
 persistence:
   data:
