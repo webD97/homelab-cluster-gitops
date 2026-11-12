@@ -8,6 +8,10 @@ spec:
     - name: ccu
       hosts:
         - ccu.fritz.box
+  ssh:
+    user: root
+    secretRef:
+      name: ccu-ssh
 ---
 apiVersion: ansible.cloudbending.dev/v1beta1
 kind: PlaybookPlan
@@ -19,11 +23,6 @@ spec:
   mode: Recurring
   schedule: "00 07 * * *"
   timeZone: Europe/Berlin
-  connectionStrategy:
-    ssh:
-      user: root
-      secretRef:
-        name: ccu-ssh
   inventoryRefs:
     - staticInventory: ccu-certificate-export
   template:

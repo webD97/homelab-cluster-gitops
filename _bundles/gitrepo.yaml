@@ -67,4 +67,5 @@ spec:
     - multimedia/jellyfin
     - multimedia/networkpolicy
 
-    - ansible-system/cluster-playbooks
+    - ansible-system/ansible-operator
+    - ansible-system/ansible-operator-extras

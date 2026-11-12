@@ -1,0 +1,16 @@
+defaultNamespace: ansible-system
+
+# The managed-SSH proxy pods the operator creates at runtime use hostPID and
+# SYS_ADMIN/SYS_PTRACE, which the baseline/restricted Pod Security levels reject.
+namespaceLabels:
+  pod-security.kubernetes.io/enforce: privileged
+
+helm:
+  chart: oci://ghcr.io/webd97/charts/ansible-operator
+  version: 1.0.0
+  releaseName: ansible-operator
+  values:
+    nodeLabels:
+      enabled: false
+    watchNamespaces:
+      - x509-system
