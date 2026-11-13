@@ -1,0 +1,111 @@
+apiVersion: ansible.cloudbending.dev/v1beta1
+kind: StaticInventory
+metadata:
+  name: truenas-certificate-export
+  namespace: x509-system
+spec:
+  hosts:
+    - name: truenas
+      hosts:
+        - truenas.fritz.box
+  ssh:
+    user: root
+    secretRef:
+      name: truenas-ssh
+---
+apiVersion: ansible.cloudbending.dev/v1beta1
+kind: PlaybookPlan
+metadata:
+  name: truenas-certificate-export
+  namespace: x509-system
+spec:
+  image: docker.io/serversideup/ansible-core:2.21
+  mode: OneShot
+  timeZone: Europe/Berlin
+  inventoryRefs:
+    - staticInventory: truenas-certificate-export
+  template:
+    files:
+      - name: truenas-cert
+        secretRef:
+          name: truenas
+    variables:
+      - inline:
+          ansible_python_interpreter: /usr/local/bin/python3
+    playbook: |
+      - hosts: all
+        gather_facts: false
+
+        vars:
+          midclt: /usr/local/bin/midclt
+          cert_prefix: cert-manager-
+          cert_pem: "{{ lookup('ansible.builtin.file', 'files/truenas-cert/tls.crt') }}"
+          # Name changes whenever cert-manager issues a new certificate
+          cert_name: "{{ cert_prefix }}{{ (cert_pem | hash('sha256'))[:16] }}"
+
+        handlers:
+          - name: Restart_webui
+            ansible.builtin.command:
+              argv: ["{{ midclt }}", call, system.general.ui_restart]
+
+        tasks:
+          # Goes through the middleware client with the payload on stdin, so the
+          # private key never ends up on a command line.
+          - name: Import certificate
+            register: import_result
+            no_log: true
+            changed_when: "'changed' in import_result.stdout"
+            ansible.builtin.command:
+              argv:
+                - "{{ ansible_python_interpreter }}"
+                - -c
+                - |
+                  import json, sys
+                  from middlewared.client import Client
+                  cert = json.load(sys.stdin)
+                  with Client() as c:
+                      if not c.call("certificate.query", [["name", "=", cert["name"]]]):
+                          c.call("certificate.create", cert, job=True)
+                          print("changed")
+              stdin: "{{ {
+                  'name': cert_name,
+                  'create_type': 'CERTIFICATE_CREATE_IMPORTED',
+                  'certificate': cert_pem,
+                  'privatekey': lookup('ansible.builtin.file', 'files/truenas-cert/tls.key'),
+                } | to_json }}"
+
+          # no_log: query results contain private keys
+          - name: Query managed certificates
+            register: managed_certs
+            no_log: true
+            changed_when: false
+            ansible.builtin.command:
+              argv: ["{{ midclt }}", call, certificate.query, "{{ [['name', '^', cert_prefix]] | to_json }}"]
+
+          - name: Read web UI settings
+            register: general_config
+            no_log: true
+            changed_when: false
+            ansible.builtin.command:
+              argv: ["{{ midclt }}", call, system.general.config]
+
+          - name: Set facts from certificate list
+            ansible.builtin.set_fact:
+              cert_id: "{{ (managed_certs.stdout | from_json | selectattr('name', '==', cert_name) | first).id }}"
+              old_cert_ids: "{{ managed_certs.stdout | from_json | rejectattr('name', '==', cert_name) | map(attribute='id') | list }}"
+              ui_cert_id: "{{ ((general_config.stdout | from_json).ui_certificate or {}).get('id') }}"
+
+          - name: Use certificate for web UI
+            notify: [Restart_webui]
+            no_log: true
+            when: ui_cert_id != cert_id
+            ansible.builtin.command:
+              argv: ["{{ midclt }}", call, system.general.update, "{{ {'ui_certificate': cert_id} | to_json }}"]
+
+          - name: Restart web UI before removing the old certificate
+            ansible.builtin.meta: flush_handlers
+
+          - name: Delete superseded certificates
+            loop: "{{ old_cert_ids }}"
+            ansible.builtin.command:
+              argv: ["{{ midclt }}", call, -job, certificate.delete, "{{ item }}"]
