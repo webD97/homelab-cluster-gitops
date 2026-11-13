@@ -3,7 +3,7 @@ defaultNamespace: storage-system
 helm:
   repo: https://zotregistry.dev/helm-charts
   chart: zot
-  version: 0.1.132
+  version: 0.1.134
   releaseName: zot
   values:
     httproute:
