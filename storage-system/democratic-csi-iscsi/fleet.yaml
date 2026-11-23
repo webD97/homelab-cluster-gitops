@@ -7,8 +7,8 @@ defaultNamespace: storage-system
 #
 # Both releases can run side by side: sockets/registration paths are keyed by csiDriver.name and
 # all probes are exec-based (no host ports). The controller is covered by the existing
-# CiliumNetworkPolicy storage-system/networkpolicy/democratic-csi.yaml (same labels; only needs
-# the TrueNAS API on 443). Node pods use hostNetwork and talk iSCSI (3260) from the host.
+# CiliumNetworkPolicy storage-system/networkpolicy/democratic-csi.yaml (same labels; needs the
+# TrueNAS API on 443 and SSH on 22). Node pods use hostNetwork and talk iSCSI (3260) from the host.
 #
 # Node prerequisite: iscsid must be running on every node that mounts these volumes
 # (Fedora CoreOS ships iscsi-initiator-utils but does not enable it).
@@ -26,7 +26,9 @@ helm:
       config:
         # Must be set even with existingConfigSecret: the chart derives the /etc/iscsi and
         # /var/lib/iscsi host mounts of the node DaemonSet from this value.
-        driver: freenas-api-iscsi
+        # SSH-based driver: the freenas-api-* drivers refuse to run on TrueNAS CORE
+        # ("driver is only available with TrueNAS SCALE"). The NFS release uses freenas-nfs too.
+        driver: freenas-iscsi
     controller:
       driver:
         image:
