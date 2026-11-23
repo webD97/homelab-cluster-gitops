@@ -1,0 +1,59 @@
+defaultNamespace: storage-system
+
+# Second democratic-csi release next to the NFS one (storage-system/democratic-csi).
+# Provides block storage (zvol + iSCSI extent on TrueNAS CORE) for workloads that must not run
+# on NFS, e.g. SQLite in WAL mode (its -shm file needs working shared memory + POSIX locks;
+# on NFS every lock/unlock blocks in nfs_iocounter_wait and froze Jellyfin for 10-150s).
+#
+# Both releases can run side by side: sockets/registration paths are keyed by csiDriver.name and
+# all probes are exec-based (no host ports). The controller is covered by the existing
+# CiliumNetworkPolicy storage-system/networkpolicy/democratic-csi.yaml (same labels; only needs
+# the TrueNAS API on 443). Node pods use hostNetwork and talk iSCSI (3260) from the host.
+#
+# Node prerequisite: iscsid must be running on every node that mounts these volumes
+# (Fedora CoreOS ships iscsi-initiator-utils but does not enable it).
+helm:
+  repo: https://democratic-csi.github.io/charts/
+  chart: democratic-csi
+  version: 0.15.1
+  releaseName: democratic-csi-iscsi
+  values:
+    # Based on https://github.com/democratic-csi/charts/blob/master/stable/democratic-csi/examples/freenas-iscsi.yaml
+    csiDriver:
+      name: zfs-iscsi
+    driver:
+      existingConfigSecret: driver-config-iscsi
+      config:
+        # Must be set even with existingConfigSecret: the chart derives the /etc/iscsi and
+        # /var/lib/iscsi host mounts of the node DaemonSet from this value.
+        driver: freenas-api-iscsi
+    controller:
+      driver:
+        image:
+          registry: ghcr.io/democratic-csi/democratic-csi
+          tag: v1.9.5
+    node:
+      driver:
+        # Important on Fedora CoreOS: https://github.com/democratic-csi/democratic-csi/issues/343
+        localtimeHostPath: null
+        image:
+          registry: ghcr.io/democratic-csi/democratic-csi
+          tag: v1.9.5
+    storageClasses:
+      - name: iscsi-csi
+        defaultClass: false
+        reclaimPolicy: Retain
+        volumeBindingMode: Immediate
+        allowVolumeExpansion: true
+        parameters:
+          fsType: ext4
+        mountOptions:
+          - noatime
+        secrets:
+          provisioner-secret:
+          controller-publish-secret:
+          node-stage-secret:
+          node-publish-secret:
+          controller-expand-secret:
+    # No snapshot CRDs/controller in this cluster
+    volumeSnapshotClasses: []

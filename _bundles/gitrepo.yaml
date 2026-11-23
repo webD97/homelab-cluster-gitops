@@ -24,6 +24,7 @@ spec:
 
     - storage-system/democratic-csi-config
     - storage-system/democratic-csi
+    - storage-system/democratic-csi-iscsi
     - storage-system/networkpolicy
     - storage-system/zotregistry
 
