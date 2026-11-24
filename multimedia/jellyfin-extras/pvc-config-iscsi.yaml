@@ -1,0 +1,16 @@
+# Block-storage replacement for the chart-managed jellyfin-config PVC (nfs-csi).
+# Jellyfin's SQLite DB runs in WAL mode, and its -shm locking stalls for 20-30 s per
+# lock call on NFS. This PVC is created empty. The data is copied over manually while
+# Jellyfin is scaled to 0; only then is the chart switched to
+# persistence.config.existingClaim: jellyfin-config-iscsi.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jellyfin-config-iscsi
+spec:
+  storageClassName: iscsi-csi
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi

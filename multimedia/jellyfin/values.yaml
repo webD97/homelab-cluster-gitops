@@ -3,6 +3,9 @@ image:
   # tag: "10.11.11"
 
 persistence:
+  config:
+    annotations:
+      helm.sh/resource-policy: keep
   media:
     size: 3072Gi
   cache:
