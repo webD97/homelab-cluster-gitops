@@ -4,8 +4,7 @@ image:
 
 persistence:
   config:
-    annotations:
-      helm.sh/resource-policy: keep
+    existingClaim: jellyfin-config-iscsi
   media:
     size: 3072Gi
   cache:
