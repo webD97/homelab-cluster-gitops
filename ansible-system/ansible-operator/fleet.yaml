@@ -7,7 +7,7 @@ namespaceLabels:
 
 helm:
   chart: oci://ghcr.io/webd97/charts/ansible-operator
-  version: 1.0.3
+  version: 1.0.4
   releaseName: ansible-operator
   values:
     nodeLabels:
